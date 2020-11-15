@@ -106,7 +106,7 @@
 //             dump(FuncoesUteis::identificar_temporada_serie($titulo));
 //            $texto = "Episódio 19HDTV";
 //            dump(Str::contains($texto," e"));
-            return $this->bludvSerie();
+            return $this->teste_comando_filmes();
 //            ListFeed::whereStatus(FeedLinkStatus::NAO_ENVIADO)->update(["status" => FeedLinkStatus::ENVIADO]);
 //            return "OK";
 //            $data = Carbon::now();
@@ -1279,9 +1279,9 @@
 
         private function teste_comando_filmes()
         {
-            $link = "https://comandotorrents.org/the-boys-2a-temporada-completa-torrent/";
-            $link_the_movie = "398978";
-            $link_imdb = "tt1302006";
+            $link = "https://comandotorrents.org/o-mandaloriano-star-wars-2a-temporada-completa-torrent/";
+            $link_the_movie = "82856";
+            $link_imdb = "tt8111088";
 //        $dom = HtmlDomParser::file_get_html($link);
 //        dump($dom->findOne("b:contains('Lançamento')")->nextSibling()->nextSibling()->html());
             //download
@@ -1303,7 +1303,7 @@
 //        dump($links_de_download);
             $comando = new ComandoTorrent($link);
             $comando->is_serie = true;
-            $themovie = new TheMovieDB($link_the_movie, false);
+            $themovie = new TheMovieDB($link_the_movie, true);
             $imdb = new IMDB($link_imdb);
             $comando->theMovieDB = $themovie;
             $comando->imdb = $imdb;

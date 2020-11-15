@@ -59,14 +59,13 @@ class ComandoTorrent extends Filme
         $this->legenda = self::pegar_dados_e_verificar($this->dom, ["b:contains(Legenda)"]);
         $this->qualidade = self::pegar_dados_e_verificar($this->dom, ["b:contains(Qualidade)"]);
         $this->qualidade_original = str_replace(",", " &", $this->qualidade);
-        $this->qualidade = str_replace(",", "", $this->qualidade);
-        $this->qualidade = str_replace(" ", "", $this->qualidade);
-        $this->qualidade = str_replace("|", "", $this->qualidade);
+        $this->qualidade = FuncoesUteis::multipleReplace([","," ","|",":"],"",$this->qualidade);
         $this->qualidade = self::arrumar_qualidade($this->qualidade);
-        $this->formato = self::pegar_dados_e_verificar($this->dom, ["b:contains(Formato)"]);
+        $this->formato = trim(FuncoesUteis::multipleReplace([':'],"",self::pegar_dados_e_verificar($this->dom, ["b:contains(Formato)"])));
         $this->tamanho = self::pegar_dados_e_verificar($this->dom, ["b:contains(Tamanho)"]);
-        $this->qualidade_audio = self::pegar_dados_e_verificar($this->dom, ["b:contains('Qualidade de Áudio:')","b:contains('Qualidade de Áudio e Vídeo:')"]);
-        $this->qualidade_video = self::pegar_dados_e_verificar($this->dom, ["b:contains('Qualidade de Vídeo:')","b:contains('Qualidade de Áudio e Vídeo:)"]);
+        $this->qualidade_audio = self::pegar_dados_e_verificar($this->dom, ["b:contains('Qualidade de Áudio:')","b:contains('Qualidade de Áudio e Vídeo:')"],[],"10");
+        $this->qualidade_video = self::pegar_dados_e_verificar($this->dom, ["b:contains('Qualidade de Vídeo:')","b:contains('Qualidade de Áudio e Vídeo:')"],[],"10");
+
         $this->verificar_ano_lancamento();
         $this->duracao = self::pegar_dados_e_verificar($this->dom, ["b:contains('Duração')"]);
         if($this->is_serie){
@@ -87,7 +86,7 @@ class ComandoTorrent extends Filme
 
     private function carregar_dados_serie()
     {
-        $titulo_serie = $this->dom->findOne("div.title>h1")->text();
+        $titulo_serie = $this->dom->findOne("h1.entry-title")->text();
         $this->serie_temporada = FuncoesUteis::identificar_temporada_serie($titulo_serie);
         $this->pegar_texto_serie_anotacao();
     }
@@ -129,7 +128,7 @@ class ComandoTorrent extends Filme
     private function pegar_generos()
     {
         try {
-            return self::pegar_dados_e_verificar($this->dom, ["b:contains(Gênero)"]);
+            return FuncoesUteis::multipleReplace([':'," "],"",self::pegar_dados_e_verificar($this->dom, ["b:contains(Gênero)"]));
         } catch (\Exception $ex) {
             \Log::error($ex);
             return "";

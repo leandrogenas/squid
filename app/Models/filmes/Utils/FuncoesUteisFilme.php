@@ -19,7 +19,7 @@
 
     class FuncoesUteisFilme
     {
-        public function pegar_dados_e_verificar(HtmlDomParser $dom, array $multiselector, $remove_invalid = [])
+        public function pegar_dados_e_verificar(HtmlDomParser $dom, array $multiselector, $remove_invalid = [], $default_return = "")
         {
             try {
                 foreach ($multiselector as $selector) {
@@ -31,13 +31,13 @@
                         return trim($find->nextSibling()->text());
                     }
                 }
-                return "";
+                return $default_return;
             } catch (Exception $ex) {
                 \Log::error($ex);
-                return "";
+                return $default_return;
             } catch (\Throwable $ex) {
                 \Log::error($ex);
-                return "";
+                return $default_return;
             }
         }
 
