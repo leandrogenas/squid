@@ -145,7 +145,7 @@
             if ($this->filme->is_serie) {
                 if (!empty($this->filme->links_download_serie)) {
                     $html = "<div style='text-align:center;'>";
-                    $html .= "<a href='https://legendario.org/busca?q=" . urlencode($this->filme->titulo) . "' target='_blank' rel='nofollow noopener noreferrer'>LEGENDA</a><br>";
+                    $html .= "<a href='https://legendei.to/?s=" . urlencode($this->filme->titulo) . "' target='_blank' rel='nofollow noopener noreferrer'>LEGENDA</a><br>";
                     foreach ($this->filme->links_download_serie as $texto => $dados) {
                         $html .= "<div><b>$texto</b></div>";
                         foreach ($dados as $texto_episodio => $links) {
@@ -184,7 +184,7 @@
             if ($this->filme->is_serie) {
                 if (!empty($this->filme->links_download_serie)) {
                     $html = "<div style='text-align:center;'>";
-                    $html .= "<a href='https://legendario.org/busca?q=" . urlencode($this->filme->titulo) . "' target='_blank' rel='nofollow noopener noreferrer'>LEGENDA</a><br>";
+                    $html .= "<a href='https://legendei.to/?s=" . urlencode($this->filme->titulo) . "' target='_blank' rel='nofollow noopener noreferrer'>LEGENDA</a><br>";
                     foreach ($this->filme->links_download_serie as $texto => $dados) {
                         $html .= "<div><b>$texto</b></div>";
                         foreach ($dados as $texto_episodio => $links) {
@@ -223,7 +223,7 @@
             if ($this->filme->is_serie) {
                 if (!empty($this->filme->links_download_serie)) {
                     $html = "<div style='text-align:center;'>";
-                    $html .= "<a href='https://legendario.org/busca?q=" . urlencode($this->filme->titulo) . "' target='_blank' rel='nofollow noopener noreferrer'>LEGENDA</a><br>";
+                    $html .= "<a href='https://legendei.to/?s=" . urlencode($this->filme->titulo) . "' target='_blank' rel='nofollow noopener noreferrer'>LEGENDA</a><br>";
                     foreach ($this->filme->links_download_serie as $texto => $dados) {
                         $html .= "<div><b>$texto</b></div>";
                         foreach ($dados as $texto_episodio => $links) {
@@ -456,13 +456,13 @@
             }
             if ($this->filme->is_legendado()) {
                 $content["custom_fields"][] = [
-                    "key" => "legendas", "value" => "https://legendario.org/busca?q=" . urlencode(empty($this->filme->titulo_original) ? $this->filme->titulo_traduzido:$this->filme->titulo_original)
+                    "key" => "legendas", "value" => "https://legendei.to/?s=" . urlencode(empty($this->filme->titulo_original) ? $this->filme->titulo_traduzido:$this->filme->titulo_original)
                 ];
             }
             if ($this->filme->is_serie) {
                 $content["custom_fields"][] = ["key" => "episodios_links", "value" => $html];
                 $content["custom_fields"][] = [
-                    "key" => "legendas", "value" => "https://legendario.org/busca?q=" . urlencode(empty($this->filme->titulo_original) ? $this->filme->titulo_traduzido:$this->filme->titulo_original)
+                    "key" => "legendas", "value" => "https://legendei.to/?s=" . urlencode(empty($this->filme->titulo_original) ? $this->filme->titulo_traduzido:$this->filme->titulo_original)
                 ];
             } else {
                 $content["custom_fields"][] = ["key" => "custom_download", "value" => $html];
@@ -534,13 +534,13 @@
         </div>";
             if ($this->filme->is_legendado()) {
                 $content["custom_fields"][] = [
-                    "key" => "legendas", "value" => "https://legendario.org/busca?q=" . urlencode($this->filme->titulo_original)
+                    "key" => "legendas", "value" => "https://legendei.to/?s=" . urlencode($this->filme->titulo_original)
                 ];
             }
             if ($this->filme->is_serie) {
                 $content["custom_fields"][] = ["key" => "episodios_links", "value" => $html];
                 $content["custom_fields"][] = [
-                    "key" => "legendas", "value" => "https://legendario.org/busca?q=" . urlencode($this->filme->titulo_original)
+                    "key" => "legendas", "value" => "https://legendei.to/?s=" . urlencode($this->filme->titulo_original)
                 ];
             } else {
                 $content["custom_fields"][] = ["key" => "custom_download", "value" => $html];
@@ -575,7 +575,7 @@
             if ($this->filme->is_serie) {
                 if (!empty($this->filme->links_download_serie)) {
                     $html = "<div style='text-align:center;'>";
-                    $html .= "<a href='https://legendario.org/busca?q=" . urlencode($this->filme->titulo) . "' target='_blank' rel='nofollow noopener noreferrer'>LEGENDA</a><br>";
+                    $html .= "<a href='https://legendei.to/?s=" . urlencode($this->filme->titulo) . "' target='_blank' rel='nofollow noopener noreferrer'>LEGENDA</a><br>";
                     foreach ($this->filme->links_download_serie as $texto => $dados) {
                         $html .= "<div><b>$texto</b></div>";
                         foreach ($dados as $texto_episodio => $links) {
