@@ -5,6 +5,14 @@
             <label>Link do Site</label>
             <input class="form-control" id="link_site">
         </div>
+        @component("layouts.componentes.painel-collapse",["title"=>"HTML","id"=>'painel-html',"class"=>"panel-primary"])
+            <div class="form-group text-center">
+                <label>Html da postagem</label>
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" id="html_postagem" rows="5"></textarea>
+            </div>
+        @endcomponent
         <div class="form-group">
             <p>Cole o link aqui para pegar o id</p>
             <label>Link ThemovieDB</label>
@@ -145,6 +153,7 @@
                         $("#{{$site}}").val(data.post_site.{{$site}}.id);
                         $("#{{$site}}_nome").val(data.post_site.{{$site}}.titulo);
                         @endforeach
+                        $("#html_postagem").val(data.html_postagem);
                         Swal.close();
                     }).fail(function () {
                         Swal.close();
@@ -167,13 +176,14 @@
             var link_the_movie = $("#id_themovie").val();
             var link_imdb = $("#id_imdb").val();
             var total_tr = $("tbody > tr").length;
+            let html_postagem = $("#html_postagem").val();
             var html_sites = "";
             @foreach(\App\Enums\Sites::get_movie_sites() as $site)
                 var post_id_{{$site}} = $("#{{$site}}").val();
                 html_sites += "<input type='hidden' name='{{$site}}' value='"+post_id_{{$site}}+"'>";
              @endforeach
             total_tr++;
-            $("table > tbody").append(" <tr id='" + total_tr + "'> <td><input type='hidden' name='link_site[]' value='" + link + "'> <input type='hidden' name='id_themovies[]' value='" + link_the_movie + "'><input type='hidden' name='is_cinema[]' value='false'> <input type='hidden' name='id_imdbs[]' value='" + link_imdb + "'>" + link + html_sites + "</td><td><button type='button' onclick=\"remover('tr#" + total_tr + "')\" class='btn btn-danger'><i class='far fa-times-circle'> Remover</i></button></td></tr>");
+            $("table > tbody").append(" <tr id='" + total_tr + "'> <td><input type='hidden' name='link_site[]' value='" + link + "'><textarea style='display: none' name='html_postagem[]'>"+html_postagem+"</textarea> <input type='hidden' name='id_themovies[]' value='" + link_the_movie + "'><input type='hidden' name='is_cinema[]' value='false'> <input type='hidden' name='id_imdbs[]' value='" + link_imdb + "'>" + link + html_sites + "</td><td><button type='button' onclick=\"remover('tr#" + total_tr + "')\" class='btn btn-danger'><i class='far fa-times-circle'> Remover</i></button></td></tr>");
             limpar_campos();
         }
 
@@ -188,6 +198,7 @@
             $("#id_imdb").val("");
             $("#nome_themovie").val("");
             $("#nome_imdb").val("");
+            $("#html_postagem").val("");
             @foreach(\App\Enums\Sites::get_movie_sites() as $site)
             $("#{{$site}}").val("");
             $("#{{$site}}_nome").val("");

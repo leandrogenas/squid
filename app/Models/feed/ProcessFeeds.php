@@ -309,7 +309,9 @@
         private function addLinkNoBanco()
         {
             foreach ($this->lista_links as $link) {
-                ListFeed::firstOrCreate(["link" => $link["link"], "tipo" => $link["tipo"], "titulo" => $link["titulo"], "tipo_link" => $link["tipo_link"]]);
+                $titulo = $link['titulo'];
+                $titulo = strlen($titulo) >= 195 ? substr($titulo,0,190):$titulo;
+                ListFeed::firstOrCreate(["link" => $link["link"], "tipo" => $link["tipo"], "titulo" => $titulo, "tipo_link" => $link["tipo_link"]]);
             }
         }
 

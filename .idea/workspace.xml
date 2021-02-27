@@ -19,7 +19,18 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="749cb818-6f7f-446c-b160-ef5cd3de8a6c" name="Default Changelist" comment="Feito os ajuste no comandotorrent.org conforme solicitado em https://trello.com/c/5eeBBJK2" />
+    <list default="true" id="749cb818-6f7f-446c-b160-ef5cd3de8a6c" name="Default Changelist" comment="trocado legendario por legendei">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SerieController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SerieController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TestController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TestController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/animes/AnimesVision.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/animes/AnimesVision.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/feed/ProcessFeeds.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/feed/ProcessFeeds.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/filmes/sites/ComandoTorrent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/filmes/sites/ComandoTorrent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Utils/FuncoesUteis.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Utils/FuncoesUteis.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/temp2.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/temp2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/screens/series/update-serie.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/screens/series/update-serie.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -233,7 +244,7 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -484,6 +495,25 @@
       <workItem from="1603655628335" duration="104000" />
       <workItem from="1603939198473" duration="677000" />
       <workItem from="1605405759338" duration="2959000" />
+      <workItem from="1607181956550" duration="866000" />
+      <workItem from="1607385926214" duration="817000" />
+      <workItem from="1607733293291" duration="579000" />
+      <workItem from="1608383057872" duration="310000" />
+      <workItem from="1608383470392" duration="177000" />
+      <workItem from="1609725408308" duration="106000" />
+      <workItem from="1611014225942" duration="1687000" />
+      <workItem from="1611021535821" duration="239000" />
+      <workItem from="1611543093010" duration="1428000" />
+      <workItem from="1612038396713" duration="40000" />
+      <workItem from="1612038457702" duration="686000" />
+      <workItem from="1612114574749" duration="1413000" />
+      <workItem from="1612620255371" duration="789000" />
+      <workItem from="1612723768914" duration="7014000" />
+      <workItem from="1612743865848" duration="9197000" />
+      <workItem from="1612828912270" duration="3609000" />
+      <workItem from="1613223921474" duration="44000" />
+      <workItem from="1613427804515" duration="2553000" />
+      <workItem from="1613874443453" duration="15000" />
     </task>
     <task id="LOCAL-00001" summary="momentos antes das tretas começar!">
       <created>1586051129870</created>
@@ -541,7 +571,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605410030132</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="trocado legendario por legendei">
+      <created>1607182136913</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1607182136914</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -557,6 +594,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
@@ -569,36 +607,29 @@
     <MESSAGE value="update 10/08" />
     <MESSAGE value="update 24/10" />
     <MESSAGE value="Feito os ajuste no comandotorrent.org conforme solicitado em https://trello.com/c/5eeBBJK2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Feito os ajuste no comandotorrent.org conforme solicitado em https://trello.com/c/5eeBBJK2" />
+    <MESSAGE value="trocado legendario por legendei" />
+    <option name="LAST_COMMIT_MESSAGE" value="trocado legendario por legendei" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="765" y="237" key="#com.intellij.ide.util.MemberChooser" timestamp="1598319736772">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1609725512565">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="237" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1598319736772" />
-    <state x="996" y="301" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1602552060045">
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1609725512565" />
+    <state x="479" y="67" key="SettingsEditor" timestamp="1611016149789">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="996" y="301" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602552060045" />
-    <state x="432" y="0" key="CommitChangelistDialog2" timestamp="1603585147233">
+    <state x="479" y="67" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1611016149789" />
+    <state width="508" height="446" key="SwitcherDM" timestamp="1613429133839">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="432" y="0" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1603585147233" />
-    <state x="748" y="335" key="NewPhpClassDialog" timestamp="1602548387500">
+    <state width="508" height="446" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1613429133839" />
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2" timestamp="1607182150900">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="748" y="335" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602548387500" />
-    <state x="552" y="254" key="Vcs.Push.Dialog.v2" timestamp="1605410037973">
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1607182150900" />
+    <state x="388" y="254" width="1170" height="638" key="find.popup" timestamp="1612038474600">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1605410037973" />
-    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1603158438199">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603158438199" />
-    <state x="388" y="254" width="1170" height="638" key="find.popup" timestamp="1603158432027">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="388" y="254" width="1170" height="638" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1603158432027" />
+    <state x="388" y="254" width="1170" height="638" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1612038474600" />
   </component>
 </project>

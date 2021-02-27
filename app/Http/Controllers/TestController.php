@@ -65,7 +65,7 @@
     class TestController extends Controller
     {
 
-        public function testes()
+        public function testes(Request $request)
         {
 //        $date = 'Hello World';
 //        $tr = new GoogleTranslate("en");
@@ -106,7 +106,25 @@
 //             dump(FuncoesUteis::identificar_temporada_serie($titulo));
 //            $texto = "Episódio 19HDTV";
 //            dump(Str::contains($texto," e"));
-            return $this->teste_comando_filmes();
+//            if($request->has('teste')){
+//                $html = $request->post('html');
+//                $link = "https://comandotorrents.org/wandavision-1a-temporada-torrent";
+//                $link_the_movie = "85271";
+//                $link_imdb = "tt9140560";
+//                $comando = new ComandoTorrent($link);
+//                $comando->is_serie = true;
+//                $themovie = new TheMovieDB($link_the_movie, true);
+//                $imdb = new IMDB($link_imdb);
+//                $comando->theMovieDB = $themovie;
+//                $comando->imdb = $imdb;
+//                $comando->carregar_dados_html($html);
+//                dump($comando);
+//                dump($html);
+//            }else{
+//              return view("teste");
+//            }
+//            return $this->teste_comando_filmes();
+            return $this->testeAnimesVision();
 //            ListFeed::whereStatus(FeedLinkStatus::NAO_ENVIADO)->update(["status" => FeedLinkStatus::ENVIADO]);
 //            return "OK";
 //            $data = Carbon::now();
@@ -438,13 +456,13 @@
 //            set_time_limit(0);
 //            $before = microtime(true);
 //            dump(HtmlDomParser::file_get_html("https://animesvision.biz/animes/quanzhi-fashi-4/episodio-01/legendado/download")->html());
-            $anime = new AnimesVision("https://animesvision.biz/animes/pokemon-twilight-wings");
-            $anime->post_vip_id = null;
-            $anime->carregar(1, 1);
+            $anime = new AnimesVision("https://animesvision.biz/animes/wave-surfing-yappe");
+            $anime->post_vip_id = 165280;
+            $anime->carregar(6, 6);
             dump($anime);
-//            $lista[] = $anime;
-//            $postar = new FazerPostagem();
-//            $postar->postar_animes($lista);
+            $lista[] = $anime;
+            $postar = new FazerPostagem();
+            $postar->postar_animes($lista);
 ////            $after = microtime(true);
 ////            echo ($after - $before) . " sec\n";
 //            dump($postar);
@@ -1279,9 +1297,9 @@
 
         private function teste_comando_filmes()
         {
-            $link = "https://comandotorrents.org/o-mandaloriano-star-wars-2a-temporada-completa-torrent/";
-            $link_the_movie = "82856";
-            $link_imdb = "tt8111088";
+            $link = "https://comandotorrents.org/wandavision-1a-temporada-torrent";
+            $link_the_movie = "85271";
+            $link_imdb = "tt9140560";
 //        $dom = HtmlDomParser::file_get_html($link);
 //        dump($dom->findOne("b:contains('Lançamento')")->nextSibling()->nextSibling()->html());
             //download
@@ -1301,15 +1319,16 @@
 //            $links_de_download[] = $links_download;
 //        }
 //        dump($links_de_download);
+            $html = $this->get_web_page($link);
             $comando = new ComandoTorrent($link);
             $comando->is_serie = true;
             $themovie = new TheMovieDB($link_the_movie, true);
             $imdb = new IMDB($link_imdb);
             $comando->theMovieDB = $themovie;
             $comando->imdb = $imdb;
-            $comando->carregar_dados();
+            $comando->carregar_dados_html($html);
             dump($comando);
-
+//            return "<textarea>".$this->get_web_page($link)."</textarea>";
         }
 
         private function identificar_qualidade_link_texto($texto)
@@ -1535,7 +1554,7 @@
             }
         }
 
-        function get_web_page($url)
+        public function get_web_page($url)
         {
             $before = microtime(true);
             $options = array(
@@ -1561,7 +1580,7 @@
             curl_close($ch);
 
             $data = explode("\n", $content);
-            dump($content);
+//            dump($content);
 //            $result = array_filter($data, function ($var) {
 //                return preg_match('/Location: (.*)/m', $var);
 //            });
@@ -1570,6 +1589,7 @@
 ////        dump($matches[0][1]);
 //            $after = microtime(true);
 //            echo ($after - $before) . " sec\n";
+//            \Log::debug($content);
             return $content;
         }
 

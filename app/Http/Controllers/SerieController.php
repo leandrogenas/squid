@@ -30,7 +30,6 @@ class SerieController extends Controller
             Session::save();
             $wp = new WordPress();
             $publica_dados = new PublicaDados();
-            \Log::debug(print_r($request->all(),true));
             $links_publicar = $request->post("link_site");
             $count = 0;
             $series = [];
@@ -41,7 +40,7 @@ class SerieController extends Controller
                     $atualiza_serie->set_post_edit($site,$request->post($site));
                 }
                 $filme = $this->identificar_e_preparar_site($link, $request->post("id_themovies")[$count],
-                    $request->post("id_imdbs")[$count],true);
+                    $request->post("id_imdbs")[$count],$request->post("html_postagem")[$count],true);
                 $atualiza_serie->filme = $filme;
                 $series[] = $atualiza_serie;
                 $count++;
@@ -74,6 +73,10 @@ class SerieController extends Controller
         $resultado["imdb"] = $link_imdb;
         $resultado["post_site"] = $post_edits;
         $resultado['serie'] = $nome;
+        if(Str::contains($link_site,"comandotorrents")){
+            $html = FuncoesUteis::get_web_page($link_site);
+            $resultado['html_postagem'] = $html;
+        }
         return $resultado;
     }
 
@@ -87,7 +90,7 @@ class SerieController extends Controller
         return $resultado;
     }
 
-    private function identificar_e_preparar_site($link_site, $id_themovie, $id_imdb,$is_serie = false)
+    private function identificar_e_preparar_site($link_site, $id_themovie, $id_imdb,$html_postagem,$is_serie = false)
     {
         if (Str::contains($link_site, "torrentdosfilmes")) {
             $lapumia = new Lapumia($link_site);
@@ -111,6 +114,7 @@ class SerieController extends Controller
             $imdb = new IMDB($id_imdb);
             $comando->theMovieDB = $themovie;
             $comando->imdb = $imdb;
+            $comando->html = $html_postagem;
             $comando->is_serie = $is_serie;
             return $comando;
         } else {

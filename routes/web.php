@@ -26,7 +26,7 @@
     Route::get('login/evernote/callback', 'GoogleDriveController@handleProviderGoogleCallback');
 
 //Route::get("/testes/lapumia","TestController@lapumiaDados");
-    Route::get("/testes", "TestController@testes")->middleware("auth");
+    Route::any("/testes", "TestController@testes")->middleware("auth")->name('testes');
     Route::group(["middleware" => "auth", "prefix" => "home"], function () {
         Route::post("/filmes/series/pesquisa", "FilmesController@pesquisar_links_serie")->name("filmes.pesquisa.serie");
         Route::post("/filmes/pesquisa", "FilmesController@pesquisar_links")->name("filmes.pesquisa");

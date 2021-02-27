@@ -4,6 +4,7 @@
 namespace App\Models\filmes\sites;
 
 
+use App\Http\Controllers\TestController;
 use App\Models\filmes\download\LinkFilme;
 use App\Models\filmes\download\LinksDownloads;
 use App\Models\filmes\Filme;
@@ -24,6 +25,7 @@ use voku\helper\HtmlDomParser;
 class ComandoTorrent extends Filme
 {
     private $link, $dom;
+    public $html;
 
     /**
      * Lapumia constructor.
@@ -36,7 +38,49 @@ class ComandoTorrent extends Filme
 
     public function carregar_dados()
     {
-        $this->carregar_site();
+        if(!empty($this->html)){
+            $html = $this->html;
+            $html = str_replace('"',"'",$html);
+            $html = str_replace('$','',$html);
+            $this->dom = HtmlDomParser::str_get_html($html);
+        }else{
+            $this->carregar_site();
+        }
+        $this->carregar_dados_filme();
+    }
+
+    public function carregar_dados_html($html)
+    {
+        $regex = '/<p(?:[^\n]*(\n+))+<\/article>/m';
+//        $new_html = "<html><body>";
+//        preg_match_all($regex, $html, $matches, PREG_SET_ORDER, 0);
+//        foreach ($matches as $match){
+//            $new_html .= $match[0]."\n";
+//        }
+//        $new_html .= "</body></html>";
+//        \Log::debug($new_html);
+//        $html = "<html></html>";
+//        dump(addslashes($html));
+//        dump($html);
+//        $new_html = "<html><body>";
+//        $iniciar = false;
+//        foreach ($html as $h) {
+//            if(Str::contains($h,"<b>")|| Str::contains($h,"<p") || Str::contains($h,"<h2")){
+//                $new_html .= str_replace('"',"'",$h)."\n";
+//            }
+//        }
+//        $new_html .= "</body></html>";
+//        $new_html = str_replace('"',"",$new_html);
+//        dump($new_html);
+//
+        $html = str_replace('"',"'",$html);
+        $html = str_replace('$','',$html);
+
+        $new_html = "";
+//        \Log::debug($html);
+        dump($new_html);
+        $this->dom = HtmlDomParser::str_get_html($html);
+        //$this->carregar_site();
         $this->carregar_dados_filme();
     }
 
@@ -47,9 +91,9 @@ class ComandoTorrent extends Filme
 
     private function carregar_dados_filme()
     {
-        if(empty($this->movie_name)){
+        if (empty($this->movie_name)) {
             $this->titulo_original = FuncoesUteis::limpar_caracteres_especiais_bludv(self::pegar_dados_e_verificar($this->dom, ["b:contains('Original')"]));
-        }else{
+        } else {
             $this->titulo_original = $this->movie_name;
         }
         $this->titulo_traduzido = FuncoesUteis::limpar_caracteres_especiais_bludv(self::pegar_dados_e_verificar($this->dom, ["b:contains('Traduzido')"]));
@@ -59,19 +103,19 @@ class ComandoTorrent extends Filme
         $this->legenda = self::pegar_dados_e_verificar($this->dom, ["b:contains(Legenda)"]);
         $this->qualidade = self::pegar_dados_e_verificar($this->dom, ["b:contains(Qualidade)"]);
         $this->qualidade_original = str_replace(",", " &", $this->qualidade);
-        $this->qualidade = FuncoesUteis::multipleReplace([","," ","|",":"],"",$this->qualidade);
+        $this->qualidade = FuncoesUteis::multipleReplace([",", " ", "|", ":"], "", $this->qualidade);
         $this->qualidade = self::arrumar_qualidade($this->qualidade);
-        $this->formato = trim(FuncoesUteis::multipleReplace([':'],"",self::pegar_dados_e_verificar($this->dom, ["b:contains(Formato)"])));
+        $this->formato = trim(FuncoesUteis::multipleReplace([':'], "", self::pegar_dados_e_verificar($this->dom, ["b:contains(Formato)"])));
         $this->tamanho = self::pegar_dados_e_verificar($this->dom, ["b:contains(Tamanho)"]);
-        $this->qualidade_audio = self::pegar_dados_e_verificar($this->dom, ["b:contains('Qualidade de Áudio:')","b:contains('Qualidade de Áudio e Vídeo:')"],[],"10");
-        $this->qualidade_video = self::pegar_dados_e_verificar($this->dom, ["b:contains('Qualidade de Vídeo:')","b:contains('Qualidade de Áudio e Vídeo:')"],[],"10");
+        $this->qualidade_audio = self::pegar_dados_e_verificar($this->dom, ["b:contains('Qualidade de Áudio:')", "b:contains('Qualidade de Áudio e Vídeo:')"], [], "10");
+        $this->qualidade_video = self::pegar_dados_e_verificar($this->dom, ["b:contains('Qualidade de Vídeo:')", "b:contains('Qualidade de Áudio e Vídeo:')"], [], "10");
 
         $this->verificar_ano_lancamento();
         $this->duracao = self::pegar_dados_e_verificar($this->dom, ["b:contains('Duração')"]);
-        if($this->is_serie){
+        if ($this->is_serie) {
             $this->carregar_dados_serie();
             $this->pegar_links_download_serie();
-        }else{
+        } else {
             $this->pegar_links_download();
         }
         self::verificar_e_usar_themoviedb($this->theMovieDB, $this);
@@ -128,7 +172,7 @@ class ComandoTorrent extends Filme
     private function pegar_generos()
     {
         try {
-            return FuncoesUteis::multipleReplace([':'," "],"",self::pegar_dados_e_verificar($this->dom, ["b:contains(Gênero)"]));
+            return FuncoesUteis::multipleReplace([':', " "], "", self::pegar_dados_e_verificar($this->dom, ["b:contains(Gênero)"]));
         } catch (\Exception $ex) {
             \Log::error($ex);
             return "";
@@ -174,24 +218,25 @@ class ComandoTorrent extends Filme
         }
     }
 
-    private function pegarSpans(){
+    private function pegarSpans()
+    {
         $lista_span = [];
-        $tags = ["span","strong","h2 > strong"];
-        $selectors = [":contains('Versão')",":contains('::')",":contains('#8212;')"];
-        foreach ($tags as $tag){
-            foreach ($selectors as $selector){
-                $css_seletor = $tag.$selector;
+        $tags = ["span", "strong", "h2 > strong"];
+        $selectors = [":contains('Versão')", ":contains('::')", ":contains('#8212;')"];
+        foreach ($tags as $tag) {
+            foreach ($selectors as $selector) {
+                $css_seletor = $tag . $selector;
                 $spans = $this->dom->findMultiOrFalse($css_seletor);
-                if($spans != false){
-                    foreach ($spans as $span){
+                if ($spans != false) {
+                    foreach ($spans as $span) {
                         $lista_span[] = $span->text();
                     }
                 }
             }
         }
         $spans = $this->dom->findMultiOrFalse("h2 > strong");
-        if($spans != false){
-            foreach ($spans as $span){
+        if ($spans != false) {
+            foreach ($spans as $span) {
                 $lista_span[] = $span->text();
             }
         }
@@ -211,7 +256,7 @@ class ComandoTorrent extends Filme
 //            }
         $dados = [];
         $count_span = 0;
-        $links = $this->dom->findMulti("a[href*='magnet']");
+        $links = $this->dom->findMulti("a[href*='magnet:?']");
         $lista_episodio = "";
         $texto_anterior_div = "";
         $total_span = count($lista_span_texto);
