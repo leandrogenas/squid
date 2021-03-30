@@ -315,6 +315,10 @@
                         "text" => "Verificar Postagem Orion",
                         "route" => "animes.animesrion.telaverifica",
                         'can'=>\App\Enums\PermissoesTipo::VER_VERIFICAR_POSTAGEM_ORION
+                    ],
+                    [
+                        "text" => "Enviar Notificação APP",
+                        "route" => "animes.tela.notificacao",
                     ]
                 ]
             ],

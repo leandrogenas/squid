@@ -19,7 +19,7 @@
      */
     abstract class Animes
     {
-        public $titulo, $content, $post_vip_id, $link, $link_capa, $tipo, $generos, $anime_letra, $descricao, $data = "2020", $imagem_pronta, $titulo_original, $tipo_anime, $link_imagem_themovie;
+        public $titulo, $content, $post_vip_id, $link, $link_capa, $tipo, $generos, $anime_letra, $descricao, $data = "2020", $imagem_pronta, $titulo_original, $tipo_anime, $link_imagem_themovie,$link_falha;
         public $cliente;
         public $episodios;
         public $log = "";

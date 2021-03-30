@@ -33,6 +33,10 @@
                     <select name="select_themovie" class="form-control"></select>
                 </div>
             </div>
+            <div class="form-group">
+                <label>Link em caso de falha (Não utilizar em caso de postar vários episódios de uma vez de um único anime)</label>
+                <input name="link_falha[]" class="form-control">
+            </div>
             <div class="row">
                 <div class="col-sm-2">
                     <label>Tipo de Postagem</label>

@@ -24,6 +24,7 @@
         "jenssegers/date": "^3.5",
         "jeroennoten/laravel-adminlte": "^3.0",
         "jgrossi/corcel": "^3.0.0",
+        "kreait/laravel-firebase": "^3.1",
         "laravel/framework": "^6.0",
         "laravel/passport": "^9.3",
         "laravel/socialite": "^4.4",

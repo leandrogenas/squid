@@ -75,6 +75,8 @@
         Route::post("/usuarios/update/{id}","UsuariosController@update")->name("usuarios.update");
 
         Route::post("/json/lista/arrumadinha","SerieNovoController@juntaListaJson")->name("json.lista.arrumada");
+        Route::get('/animes/preparanotificacao','AnimesController@telaNotificacaoApp')->name('animes.tela.notificacao');
+        Route::post('/animes/notificaapp','AnimesController@enviarNotificacaoParaApp')->name('animes.envia.notificacao');
 
         Route::resource("filmes", "FilmesController");
     });

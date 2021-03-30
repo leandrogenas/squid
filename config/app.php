@@ -187,6 +187,7 @@ return [
         Alaouy\Youtube\YoutubeServiceProvider::class,
         willvincent\Feeds\FeedsServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
+        Kreait\Laravel\Firebase\ServiceProvider::class
 
     ],
 

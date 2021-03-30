@@ -19,17 +19,155 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="749cb818-6f7f-446c-b160-ef5cd3de8a6c" name="Default Changelist" comment="trocado legendario por legendei">
+    <list default="true" id="749cb818-6f7f-446c-b160-ef5cd3de8a6c" name="Default Changelist" comment="ajustes em séries">
+      <change afterPath="$PROJECT_DIR$/app/Models/firebase/FirebaseUtil.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/screens/animes/notificacao.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/SyncWeb.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SyncWeb.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SerieController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SerieController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.phpstorm.meta.php" beforeDir="false" afterPath="$PROJECT_DIR$/.phpstorm.meta.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_ide_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/_ide_helper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AnimesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AnimesController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TestController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TestController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/animes/Animes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/animes/Animes.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/animes/AnimesVision.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/animes/AnimesVision.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/feed/ProcessFeeds.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/feed/ProcessFeeds.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/filmes/sites/ComandoTorrent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/filmes/sites/ComandoTorrent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Utils/FuncoesUteis.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Utils/FuncoesUteis.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/temp2.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/temp2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/screens/series/update-serie.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/screens/series/update-serie.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/animes/Episodio.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/animes/Episodio.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/animes/Utils/FazerPostagem.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/animes/Utils/FazerPostagem.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bootstrap/cache/packages.php" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/cache/packages.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bootstrap/cache/services.php" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/cache/services.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/adminlte.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/adminlte.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/baixadas/Boruto-Naruto-Next-Generations-episodio-167-animesonlinevip.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/baixadas/Condor-filmestorrent-vip.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/baixadas/Devils-filmestorrent-vip.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/baixadas/FBI-Most-Wanted-filmestorrent-vip.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/baixadas/High-Fidelity-filmestorrent-vip.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/baixadas/Into-the-Night-filmestorrent-vip.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/baixadas/Little-Fires-Everywhere-filmestorrent-vip.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/baixadas/Lovecraft-Country-filmestorrent-vip.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/baixadas/Lucifer-filmestorrent-vip.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/baixadas/Monsterland-filmestorrent-vip.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/baixadas/O-Irlandes-filmestorrent-vip.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/baixadas/Sandy-E-Junior-A-Historia1-temporada--episodio-1-seriesonline-pro.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/baixadas/Sherlock1-temporada--episodio-1-seriesonline-pro.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/baixadas/Sherlocktemporada-1-serieonline-pro.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/baixadas/Supernatural-filmestorrent-vip.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/baixadas/The-Boys-filmestorrent-vip.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/baixadas/The-Haunting-of-Bly-Manor-filmestorrent-vip.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/baixadas/The-Outpost-filmestorrent-vip.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/baixadas/The-Sounds-filmestorrent-vip.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/baixadas/Trickster-filmestorrent-vip.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/baixadas/teste.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/screens/animes/posta-anime.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/screens/animes/posta-anime.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_files.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_files.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_real.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_real.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/promises/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/promises/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/promises/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/AggregateException.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/AggregateException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/CancellationException.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/CancellationException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/Coroutine.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/Coroutine.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/EachPromise.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/EachPromise.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/FulfilledPromise.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/FulfilledPromise.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/Promise.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/Promise.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/PromiseInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/PromiseInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/PromisorInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/PromisorInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/RejectedPromise.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/RejectedPromise.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/RejectionException.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/RejectionException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/TaskQueue.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/TaskQueue.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/TaskQueueInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/TaskQueueInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/AppendStream.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/AppendStream.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/BufferStream.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/BufferStream.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/CachingStream.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/CachingStream.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/DroppingStream.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/DroppingStream.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/FnStream.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/FnStream.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/InflateStream.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/InflateStream.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/LazyOpenStream.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/LazyOpenStream.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/LimitStream.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/LimitStream.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/MessageTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/MessageTrait.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/MultipartStream.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/MultipartStream.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/NoSeekStream.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/NoSeekStream.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/PumpStream.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/PumpStream.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/Request.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/Request.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/Response.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/Response.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/ServerRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/ServerRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/Stream.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/Stream.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/StreamDecoratorTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/StreamDecoratorTrait.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/StreamWrapper.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/StreamWrapper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/UploadedFile.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/UploadedFile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/Uri.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/Uri.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/UriNormalizer.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/UriNormalizer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/UriResolver.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/UriResolver.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/ErrorHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/ErrorHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Formatter/ElasticaFormatter.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Formatter/ElasticaFormatter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Formatter/GelfMessageFormatter.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Formatter/GelfMessageFormatter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Formatter/HtmlFormatter.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Formatter/HtmlFormatter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Formatter/JsonFormatter.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Formatter/JsonFormatter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Formatter/LineFormatter.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Formatter/LineFormatter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Formatter/MongoDBFormatter.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Formatter/MongoDBFormatter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Formatter/NormalizerFormatter.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Formatter/NormalizerFormatter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Formatter/ScalarFormatter.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Formatter/ScalarFormatter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Formatter/WildfireFormatter.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Formatter/WildfireFormatter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/BufferHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/BufferHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/ChromePHPHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/ChromePHPHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/Curl/Util.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/Curl/Util.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/DynamoDbHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/DynamoDbHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/ElasticaHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/ElasticaHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/FallbackGroupHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/FallbackGroupHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/FilterHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/FilterHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/FingersCrossedHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/FingersCrossedHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/FormattableHandlerTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/FormattableHandlerTrait.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/GroupHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/GroupHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/HandlerWrapper.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/HandlerWrapper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/LogglyHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/LogglyHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/MandrillHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/MandrillHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/OverflowHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/OverflowHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/PHPConsoleHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/PHPConsoleHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/ProcessableHandlerInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/ProcessableHandlerInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/ProcessableHandlerTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/ProcessableHandlerTrait.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/RotatingFileHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/RotatingFileHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/SamplingHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/SamplingHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/SendGridHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/SendGridHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/Slack/SlackRecord.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/Slack/SlackRecord.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/SlackHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/SlackHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/SocketHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/SocketHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/StreamHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/StreamHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/SwiftMailerHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/SwiftMailerHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/SyslogUdp/UdpSocket.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/SyslogUdp/UdpSocket.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/SyslogUdpHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/SyslogUdpHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/TelegramBotHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/TelegramBotHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/TestHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/TestHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/ZendMonitorHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/ZendMonitorHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Logger.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Logger.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Processor/GitProcessor.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Processor/GitProcessor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Processor/PsrLogMessageProcessor.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Processor/PsrLogMessageProcessor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Processor/WebProcessor.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Processor/WebProcessor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/SignalHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/SignalHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Test/TestCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Test/TestCase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Utils.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Utils.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring/Mbstring.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring/Mbstring.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring/Resources/unidata/lowerCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring/Resources/unidata/lowerCase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring/Resources/unidata/upperCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring/Resources/unidata/upperCase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring/bootstrap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring/bootstrap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring/composer.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,6 +359,19 @@
       <path value="$PROJECT_DIR$/vendor/psr/http-factory" />
       <path value="$PROJECT_DIR$/vendor/stevenmaguire/trello-php" />
       <path value="$PROJECT_DIR$/vendor/spatie/laravel-permission" />
+      <path value="$PROJECT_DIR$/vendor/google/cloud-storage" />
+      <path value="$PROJECT_DIR$/vendor/google/crc32" />
+      <path value="$PROJECT_DIR$/vendor/google/cloud-core" />
+      <path value="$PROJECT_DIR$/vendor/mtdowling/jmespath.php" />
+      <path value="$PROJECT_DIR$/vendor/kreait/clock" />
+      <path value="$PROJECT_DIR$/vendor/kreait/laravel-firebase" />
+      <path value="$PROJECT_DIR$/vendor/rize/uri-template" />
+      <path value="$PROJECT_DIR$/vendor/kreait/firebase-php" />
+      <path value="$PROJECT_DIR$/vendor/kreait/firebase-tokens" />
+      <path value="$PROJECT_DIR$/vendor/giggsey/libphonenumber-for-php" />
+      <path value="$PROJECT_DIR$/vendor/giggsey/locale" />
+      <path value="$PROJECT_DIR$/vendor/fig/http-message-util" />
+      <path value="$PROJECT_DIR$/vendor/riverline/multipart-parser" />
     </include_path>
   </component>
   <component name="ProjectId" id="1WDBVkZFBI71qXoccT1OsPSW5fK" />
@@ -244,20 +395,20 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\SyncWeb\public" />
+      <recent name="C:\xampp\htdocs\SyncWeb\storage\app" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\SyncWeb\app\Utils" />
       <recent name="C:\xampp\htdocs\SyncWeb\resources\views\layouts\componentes" />
       <recent name="C:\xampp\htdocs\SyncWeb\resources\views\screens\games" />
       <recent name="C:\xampp\htdocs\SyncWeb\resources\views\screens\series" />
       <recent name="C:\xampp\htdocs\SyncWeb\public\css" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\SyncWeb\public" />
-      <recent name="C:\xampp\htdocs\SyncWeb\storage\app" />
     </key>
   </component>
   <component name="RunManager">
@@ -514,6 +665,9 @@
       <workItem from="1613223921474" duration="44000" />
       <workItem from="1613427804515" duration="2553000" />
       <workItem from="1613874443453" duration="15000" />
+      <workItem from="1614454374643" duration="14813000" />
+      <workItem from="1614481768518" duration="1576000" />
+      <workItem from="1616465747747" duration="936000" />
     </task>
     <task id="LOCAL-00001" summary="momentos antes das tretas começar!">
       <created>1586051129870</created>
@@ -578,7 +732,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607182136914</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="ajustes em séries">
+      <created>1614454454569</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1614454454569</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -608,25 +769,38 @@
     <MESSAGE value="update 24/10" />
     <MESSAGE value="Feito os ajuste no comandotorrent.org conforme solicitado em https://trello.com/c/5eeBBJK2" />
     <MESSAGE value="trocado legendario por legendei" />
-    <option name="LAST_COMMIT_MESSAGE" value="trocado legendario por legendei" />
+    <MESSAGE value="ajustes em séries" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajustes em séries" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="724" y="310" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1614461861316">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="724" y="310" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1614461861316" />
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1614462951404">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1614462951404" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1609725512565">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1609725512565" />
-    <state x="479" y="67" key="SettingsEditor" timestamp="1611016149789">
+    <state x="743" y="227" key="NewPhpClassDialog" timestamp="1614461892651">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="479" y="67" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1611016149789" />
+    <state x="743" y="227" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1614461892651" />
+    <state x="479" y="67" key="SettingsEditor" timestamp="1614459918795">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="479" y="67" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1614459918795" />
     <state width="508" height="446" key="SwitcherDM" timestamp="1613429133839">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="508" height="446" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1613429133839" />
-    <state x="552" y="254" key="Vcs.Push.Dialog.v2" timestamp="1607182150900">
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2" timestamp="1614454477869">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1607182150900" />
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1614454477869" />
     <state x="388" y="254" width="1170" height="638" key="find.popup" timestamp="1612038474600">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
