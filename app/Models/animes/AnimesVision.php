@@ -53,7 +53,8 @@
         {
             try {
                 $dom = HtmlDomParser::file_get_html($this->link);
-                $this->tipo = $this->pegarValores($dom, "b:contains(Idioma)", "Legendado");
+                $this->tipo = $dom->findOne('ul.movie-subtext > li')->text();
+               // $this->tipo = $this->pegarValores($dom, "ul.movie-subtext > li", "Legendado");
                 $titulo_anime = FuncoesUteis::remover_palavras_animes(empty($this->titulo) ? $dom->findOne("ol.breadcrumb > li.active")->text():$this->titulo);
 //                $duracao = $this->pegar_duracao($dom)
                 $titulo_original = FuncoesUteis::remover_palavras_animes($this->pegarValor($dom, "div.dc-info > p.alias", $titulo_anime));
@@ -62,30 +63,30 @@
                 $this->descricao = $this->prepara_descricao($dom,$titulo_anime);
                 $this->titulo = $this->preparatitulo($titulo_anime);
                 $this->titulo_original = $titulo_original;
-                $lista_episodios = $dom->findMultiOrFalse("li.ep-item");
-                $episodio_letra = strtolower($titulo_anime[0]);
-                $this->anime_letra = $episodio_letra;
-                if ($lista_episodios != false) {
-                    if ($episodio_end <= count($lista_episodios)) {
-                        for ($i = $episodio_start; $i <= $episodio_end; $i++) {
-                            $lista = $lista_episodios[($i - 1)];
-                            $link_ep = $lista->findOneOrFalse("div.sli-btn > a:nth-child(2)");
-                            if ($link_ep != false) {
-                                $link_download_ep = $link_ep->getAttribute("onclick");
-                                $title = $link_ep->getAttribute("title");
-                                $re = '/open\(\'(.*?)\',/m';
-                                preg_match_all($re, $link_download_ep, $matches, PREG_SET_ORDER, 0);
-                                $link_download_ep = $matches[0][1];
-                                $this->pegar_dados_episodio($link_download_ep, $titulo_anime, $i, $this->tipo, $episodio_letra, $title);
-                            }
-                        }
-                    } else {
-                        $this->log .= "A quantidade de episódio pedido é maior do que a disponível em: " . $this->link . " \n";
-                    }
-                } else {
-                    $this->log .= "Não foi encontrado episodios em: " . $this->link . " \n";
-                    return false;
-                }
+//                $lista_episodios = $dom->findMultiOrFalse("li.ep-item");
+//                $episodio_letra = strtolower($titulo_anime[0]);
+//                $this->anime_letra = $episodio_letra;
+//                if ($lista_episodios != false) {
+//                    if ($episodio_end <= count($lista_episodios)) {
+//                        for ($i = $episodio_start; $i <= $episodio_end; $i++) {
+//                            $lista = $lista_episodios[($i - 1)];
+//                            $link_ep = $lista->findOneOrFalse("div.sli-btn > a:nth-child(2)");
+//                            if ($link_ep != false) {
+//                                $link_download_ep = $link_ep->getAttribute("onclick");
+//                                $title = $link_ep->getAttribute("title");
+//                                $re = '/open\(\'(.*?)\',/m';
+//                                preg_match_all($re, $link_download_ep, $matches, PREG_SET_ORDER, 0);
+//                                $link_download_ep = $matches[0][1];
+//                                $this->pegar_dados_episodio($link_download_ep, $titulo_anime, $i, $this->tipo, $episodio_letra, $title);
+//                            }
+//                        }
+//                    } else {
+//                        $this->log .= "A quantidade de episódio pedido é maior do que a disponível em: " . $this->link . " \n";
+//                    }
+//                } else {
+//                    $this->log .= "Não foi encontrado episodios em: " . $this->link . " \n";
+//                    return false;
+//                }
             } catch (\Throwable $ex) {
                 \Log::error($ex);
                 $this->log .= "Houve um erro: " . $ex->getMessage() . " \n";

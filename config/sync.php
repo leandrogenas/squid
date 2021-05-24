@@ -130,7 +130,7 @@
         ],
         "login_animesonlinevip" => [
             "user" => "jean",
-            "password" => 'K5GfMRN80vw#ATuYBsf1zvVh',
+            "password" => '$La8X96apG9w5dU5xKITZ*SW',
             "url" => 'https://animesonline.vip/xmlrpc.php'
         ],
         "login_kfilmestorrent" => [

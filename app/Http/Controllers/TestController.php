@@ -127,7 +127,7 @@ class TestController extends Controller
 //              return view("teste");
 //            }
 //            return $this->teste_comando_filmes();
-        return $this->testeFirebaseMsn();
+        return $this->testeAnimesVision();
 //            ListFeed::whereStatus(FeedLinkStatus::NAO_ENVIADO)->update(["status" => FeedLinkStatus::ENVIADO]);
 //            return "OK";
 //            $data = Carbon::now();
@@ -467,13 +467,13 @@ class TestController extends Controller
 //            set_time_limit(0);
 //            $before = microtime(true);
 //            dump(HtmlDomParser::file_get_html("https://animesvision.biz/animes/quanzhi-fashi-4/episodio-01/legendado/download")->html());
-        $anime = new AnimesVision("https://animesvision.biz/animes/wave-surfing-yappe");
+        $anime = new AnimesVision("https://animesvision.biz/animes/yasuke-dublado");
         $anime->post_vip_id = 165280;
         $anime->carregar(6, 6);
         dump($anime);
-        $lista[] = $anime;
-        $postar = new FazerPostagem();
-        $postar->postar_animes($lista);
+       // $lista[] = $anime;
+        //$postar = new FazerPostagem();
+       // $postar->postar_animes($lista);
 ////            $after = microtime(true);
 ////            echo ($after - $before) . " sec\n";
 //            dump($postar);

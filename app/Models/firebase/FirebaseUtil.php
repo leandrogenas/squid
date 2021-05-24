@@ -14,10 +14,10 @@ class FirebaseUtil
             $enviador = Firebase::messaging();
             $mensagem = CloudMessage::withTarget('topic', $topic)->withNotification(['title'=>$title,'body'=>$body,'image'=>$image]);
             $enviador->send($mensagem);
-            return "Notificação post_id $topic, title $title Enviada";
+            return "Notificação post_id $topic, title $title Enviada\n";
         }catch (\Throwable $ex){
             \Log::error($ex);
-            return "Houve um erro ao enviar a notificação POST_id: $topic, title: $title , erro: ".$ex->getMessage();
+            return "Houve um erro ao enviar a notificação POST_id: $topic, title: $title , erro: ".$ex->getMessage()."\n";
         }
 
     }
