@@ -10,8 +10,8 @@ class SquidDB extends Dexie {
     {
         super('squid')
         this.version(1).stores({
-            download: '&uuid',
-            serie: '&uuid,&site',
+            downloads: '&uuid',
+            series: '&uuid,site',
             links: '&uuid'
         });
     }

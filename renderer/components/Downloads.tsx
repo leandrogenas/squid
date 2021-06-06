@@ -36,7 +36,7 @@ const Downloads = (props) =>
     useEffect(() => 
     {
       
-      if(downloads.length == 0 && !carregando){
+      if((!downloads || downloads.length == 0) && !carregando){
         setCarregando(true);
         props.getDownloads().then(data => {
           setDownloads(data.payload);

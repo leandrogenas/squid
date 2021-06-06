@@ -5,6 +5,7 @@ import { Button, Pre } from '@blueprintjs/core'
 import {useAppDispatch, useAppSelector} from '../store'
 import { sincronizarSiteThunk } from '../reducers/Sites/sitesSlice'
 import {selectSquid, statusMegaThunk} from "../reducers/Squid/squidSlice";
+import { listarSeriesThunk, selectSeries } from '../reducers/Series/seriesSlice'
 
 const IndexPage: React.FC = () => {
 
@@ -13,6 +14,7 @@ const IndexPage: React.FC = () => {
 
   const dispatch = useAppDispatch();
   const squid = useAppSelector(selectSquid);
+  const series = useAppSelector(selectSeries);
 
   useEffect(() => {
 
@@ -25,21 +27,23 @@ const IndexPage: React.FC = () => {
 
   const testeClick = () => {
     estaSyncando(true)
-    dispatch(sincronizarSiteThunk('uuid'));
+    dispatch(sincronizarSiteThunk('seriesmp4'));
   }
 
   const outroTesteClick = () => {
-
-    console.log(squid);
-    dispatch(statusMegaThunk()).then(data => {
+    dispatch(listarSeriesThunk()).then(data => {
       console.log(data);
     })
+    // console.log(squid);
+    // dispatch(statusMegaThunk()).then(data => {
+    //   console.log(data);
+    // })
   }
 
   return (
     <Layout title="Home | Next.js + TypeScript + Electron Example">
       <Button loading={syncando} onClick={testeClick}>Syncar</Button>
-      <Button loading={syncando} onClick={outroTesteClick}>Teste</Button>
+      <Button onClick={outroTesteClick}>Teste</Button>
       <p>
         <Link href="/about">
           <a>About</a>

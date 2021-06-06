@@ -26,7 +26,13 @@ export async function listarSeriesDexie(count: number = 1)
 
 export async function salvarSeries(siteUUID: string, series: SerieWordpress[])
 {
-  return idb.series.bulkPut(series);
+  const filtered = series.map(serie => {
+    return {
+      ...serie,
+      site: siteUUID
+    }
+  })
+  return idb.series.bulkPut(filtered);
 }
 
 // export async function listarSeries(count: number = 1)
