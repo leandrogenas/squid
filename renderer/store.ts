@@ -1,9 +1,9 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit'
 
-import siteReducer from './reducers/Sites'
-import downloadsReducer from './reducers/Downloads'
-import seriesReducer from './reducers/Series'
-import configsReducer from './reducers/Squid'
+import siteReducer from './reducers/Sites/sitesSlice'
+import downloadsReducer from './reducers/Downloads/downloadsSlice'
+import seriesReducer from './reducers/Series/seriesSlice'
+import squidReducer from './reducers/Squid/squidSlice'
 
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 
@@ -13,7 +13,7 @@ export function makeStore() {
       sites: siteReducer,
       downloads: downloadsReducer,
       series: seriesReducer,
-      configs: configsReducer
+      squid: squidReducer
     },
   })
 }

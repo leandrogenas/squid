@@ -1,25 +1,36 @@
 //import axios from "axios";
-import { Site } from "../../types"
+import SquidDB, { idb } from "../../model/SquidDB"
+import { Download, Site } from "../../types"
 
-export async function sincronizarSite(id: number)
-    : Promise<{ data: number }> 
-{
-  console.log(id)
-    const response = await fetch('/api/counter', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      }
-      // body: JSON.stringify({ amount }),
-    })
-    const result = await response.json()
+// export async function sincronizarSite(id: number)
+//     : Promise<{ data: number }> 
+// {
+//   console.log(id)
+//     const response = await fetch('/api/counter', {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json',
+//       }
+//       // body: JSON.stringify({ amount }),
+//     })
+//     const result = await response.json()
   
-    return result
+//     return result
+// }
+
+// export function listarSites(count: number = 1)
+//     : Site[]
+// {
+//   console.log(count);
+//     return []
+// }
+
+export async function listarDownloads()
+{
+  return idb.downloads.toArray();
 }
 
-export function listarSites(count: number = 1)
-    : Site[]
+export async function novoDownload(download: Download)
 {
-  console.log(count);
-    return []
+  return await idb.downloads.put(download) as unknown as string;
 }

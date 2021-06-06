@@ -11,38 +11,38 @@ function sleep(milliseconds) {
   } while (currentDate - date < milliseconds);
 }
 
-export async function salvarSeriesSite(series: any[]): Promise<boolean>
-{
-  return new Promise<boolean>((reject, resolve) => {
-    let open = indexedDB.open('squid', 1)
+// export async function salvarSeriesSite(series: any[]): Promise<boolean>
+// {
+//   return new Promise<boolean>((reject, resolve) => {
+//     let open = indexedDB.open('squid', 1)
 
-    open.onupgradeneeded = () => {
-      console.info('Foi preciso recriar o BD')
-      let db = open.result
-      db.createObjectStore('series', { autoIncrement: true, keyPath: 'uuid' })
-      db.createObjectStore('downloads', { autoIncrement: true, keyPath: 'uuid' })
-    }
+//     open.onupgradeneeded = () => {
+//       console.info('Foi preciso recriar o BD')
+//       let db = open.result
+//       db.createObjectStore('series', { autoIncrement: true, keyPath: 'uuid' })
+//       db.createObjectStore('downloads', { autoIncrement: true, keyPath: 'uuid' })
+//     }
 
-    open.onsuccess = () => {
-      var transaction = open.result.transaction("series", 'readwrite');
-      var objectStore = transaction.objectStore("series");
+//     open.onsuccess = () => {
+//       var transaction = open.result.transaction("series", 'readwrite');
+//       var objectStore = transaction.objectStore("series");
 
 
-      series.forEach(serie => {
-        objectStore.put(serie);
-      })
+//       series.forEach(serie => {
+//         objectStore.put(serie);
+//       })
       
 
-      transaction.onerror = function() {
-          reject()
-      };
-      transaction.oncomplete = function(event) {
-          console.log('terminou o sync' + event);
-          resolve(true);
-      };
-    }
-  });
-}
+//       transaction.onerror = function() {
+//           reject()
+//       };
+//       transaction.oncomplete = function(event) {
+//           console.log('terminou o sync' + event);
+//           resolve(true);
+//       };
+//     }
+//   });
+// }
 
 export const fetchSeriesFromWordpress = async (pages: number): Promise<any[]> => 
  {
@@ -144,45 +144,45 @@ export const fetchSeriesFromWordpress = async (pages: number): Promise<any[]> =>
 
 //   return posts;
 
-export async function sincronizarSite(id: number)
-    : Promise<{ data: number }> 
-{
-  return new Promise<{ data: number }>((resolve, reject) => {
+// export async function sincronizarSite(id: number)
+//     : Promise<{ data: number }> 
+// {
+//   return new Promise<{ data: number }>((resolve, reject) => {
 
     
-    try{
-      fetchSeriesFromWordpress(1)
-        .then(data => {
-          console.log('2', data);
-        })
-        .catch(e => {
-          throw e;
-        })
-    }catch(e){
-      reject({ data: e });
-    }
+//     try{
+//       fetchSeriesFromWordpress(1)
+//         .then(data => {
+//           console.log('2', data);
+//         })
+//         .catch(e => {
+//           throw e;
+//         })
+//     }catch(e){
+//       reject({ data: e });
+//     }
 
 
-  })
+//   })
   
 
 
 
-    const response = await fetch('/api/counter', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      }
-      // body: JSON.stringify({ amount }),
-    })
-    const result = await response.json()
+//     const response = await fetch('/api/counter', {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json',
+//       }
+//       // body: JSON.stringify({ amount }),
+//     })
+//     const result = await response.json()
   
-    return result
-}
+//     return result
+// }
 
-export function listarSites(count: number = 1)
-    : Site[]
-{
-  console.log(count);
-    return []
-}
+// export function listarSites(count: number = 1)
+//     : Site[]
+// {
+//   console.log(count);
+//     return []
+// }

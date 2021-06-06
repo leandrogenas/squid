@@ -39,6 +39,12 @@ app.on('ready', async () => {
     },
   })
 
+  mainWindow.megaServer = spawn('MEGAcmdServer.exe');
+  mainWindow.megaServer.on('data', data => {
+    console.log(`megacli-server: ${data}`);
+  })
+  mainWindow.megaShell = spawn('MEGAcmdShell.exe');
+
   const appUrl = isDev
     ? 'http://localhost:8000/'
     : url.format({
@@ -76,13 +82,11 @@ app.on('ready', async () => {
   })
 
   mainWindow.webContents.on('did-finish-load', () => {
-    console.log('pronto?');
-    let megaCliServer = spawn('MEGAcmdServer.exe')
-
-
-    megaCliServer.stdout.on('data', (data) => {
-      mainWindow?.webContents.send('megacmd-stdout', data + "");
-      console.log(`megacli-server: ${data}`);
+    mainWindow?.megaServer.on('data', (data) => {
+      mainWindow?.webContents.send('mega-stdout', data + "");
+    });
+    mainWindow?.megaShell.on('data', (data) => {
+      mainWindow?.webContents.send('mega-stdout', data + "");
     });
   })
   
@@ -91,6 +95,14 @@ app.on('ready', async () => {
 
 // Quit the app once all windows are closed
 app.on('window-all-closed', app.quit)
+
+ipcMain.on('mega', (event: IpcMainEvent, comando: 'status') => {
+  console.log(comando);
+  event.sender.send('mega', {
+    shell: mainWindow?.megaShell.pid.toString(),
+    server: mainWindow?.megaServer.pid.toString()
+});
+});
 
 ipcMain.on('janela', (_event: IpcMainEvent, comando: 'maximizar' | 'minimizar' | 'fechar') => {
 

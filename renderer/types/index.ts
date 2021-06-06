@@ -93,12 +93,13 @@ export type LinkMega = {
 }
 
 export type ConfigMega = {
-	status: 'iniciando' | 'rodando' | 'parando' | 'parado' | 'erro',
+	status: 'desconhecido' | 'rodando' | 'parado' | 'erro',
 	pidServer?: number
+	pidShell?: number
 	stdout: string[]
 }
 
-export type ListagemConfigs = {
+export type SquidState = {
 	downloadsAberto: boolean
 	count: number
 	configMega: ConfigMega

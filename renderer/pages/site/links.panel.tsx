@@ -8,7 +8,7 @@ import * as CSSselect from 'css-select'
 
 import axios from 'axios';
 import store, { useAppDispatch } from "../../store";
-import { novoDownloadThunk } from "../../reducers/Downloads";
+import { novoDownloadThunk } from "../../reducers/Downloads/downloadsSlice";
 import { connect } from "react-redux";
 import { useEffect } from "react";
 import { htmlToDOM, Element } from "html-react-parser";

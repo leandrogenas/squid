@@ -5,7 +5,7 @@ import Layout from '../components/Layout'
 import { Cell, Column, Table, TableLoadingOption } from "@blueprintjs/table";
 import { Button, ProgressBar } from '@blueprintjs/core'
 import { AppDispatch, AppState, useAppDispatch, useAppSelector } from '../store'
-import { listarDownloadsThunk, selectDownloads } from '../reducers/Downloads'
+import { listarDownloadsThunk, selectDownloads } from '../reducers/Downloads/downloadsSlice'
 import { Download, ListagemDownloads, Tabela } from '../types';
 import { connect, useSelector } from 'react-redux';
 import { IMenuContext } from '@blueprintjs/table';

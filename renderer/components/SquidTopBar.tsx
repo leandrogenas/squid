@@ -29,7 +29,7 @@ import {
 import Downloads from './Downloads';
 import { connect } from 'react-redux';
 import { AppState } from '../store';
-import { toggleDownloadsAberto } from '../reducers/Squid';
+import { toggleDownloadsAberto } from '../reducers/Squid/squidSlice';
 
 type Props = {
     downloadsAberto: boolean,
@@ -160,7 +160,7 @@ const SquidTopBar = (props: Props) => {
 
 function mapStateToProps(state: AppState) {
     return {
-        downloadsAberto: state.configs.downloadsAberto
+        downloadsAberto: state.squid.downloadsAberto
     }
   }
 

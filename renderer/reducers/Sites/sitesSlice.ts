@@ -1,7 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import { ListagemSites } from "../../types";
 import { AppState } from "../../store";
-import { fetchSeriesFromWordpress, salvarSeriesSite, sincronizarSite } from "./sitesAPI";
+import { fetchSeriesFromWordpress } from "./sitesAPI";
+import { salvarSeries } from '../Series/seriesAPI';
 
 const initialState: ListagemSites = {
 	count: 0,
@@ -19,7 +20,7 @@ export const sincronizarSiteThunk = createAsyncThunk(
 		const series = await fetchSeriesFromWordpress(1);
 		console.log('series obtidas: ' + series.length);
 		console.log('gravando no indexed db');
-		const ok = await salvarSeriesSite(series);
+		const ok = await salvarSeries(siteUUID, series);
 		console.log('resultado da gravação: ' + ok);
 
 		return series;

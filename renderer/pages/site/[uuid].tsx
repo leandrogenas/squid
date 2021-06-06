@@ -9,8 +9,8 @@ import { Button, H5, Panel, PanelStack2, Pre, ProgressBar, Switch, UL } from '@b
 import PainelSeries, { PainelSeriesInfo } from './series.panel'
 import { connect } from 'react-redux'
 import { AppDispatch, AppState, makeStore, useAppDispatch, useAppSelector } from '../../store'
-import { listarSeriesThunk, selectSeries } from '../../reducers/Series'
-import { listar, selectSites, sincronizarSiteThunk } from '../../reducers/Sites'
+import { listarSeriesThunk, selectSeries } from '../../reducers/Series/seriesSlice'
+import { listar, selectSites, sincronizarSiteThunk } from '../../reducers/Sites/sitesSlice'
 import { fetchSeriesFromWordpress } from '../../reducers/Sites/sitesAPI'
 import parse, { htmlToDOM, Element, Text } from 'html-react-parser';
 import * as CSSselect from 'css-select';

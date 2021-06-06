@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react'
 import Layout from '../components/Layout'
 import { AppDispatch } from '../store'
-import { ListagemConfigs } from '../types';
+import { SquidState } from '../types';
 import { connect } from 'react-redux';
-import { iniciarMegaThunk, pararMegaThunk } from '../reducers/Squid';
+import { iniciarMegaThunk, pararMegaThunk } from '../reducers/Squid/squidSlice';
 
 
 type Props = {
-  configsState: ListagemConfigs
+  configsState: SquidState
 	controleMega: (op: 'iniciar' | 'parar') => any
 }
 

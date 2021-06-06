@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import { ListagemSeries, SerieWordpress } from "../../types";
 import { AppState } from "../../store";
+import { listarSeriesDexie } from "./seriesAPI";
 
 const initialState: ListagemSeries = {
 	count: 0,
@@ -13,32 +14,34 @@ export const listarSeriesThunk = createAsyncThunk(
     'series/listar',
     async (qtd: number = 1) => 
     {
-        return await new Promise<SerieWordpress[]>(
-			(resolve, reject) => {
-				let open = indexedDB.open('squid', 1)
+		return listarSeriesDexie(qtd);
 
-				open.onupgradeneeded = () => {
-					console.info('Foi preciso recriar o BD')
-					let db = open.result
-					db.createObjectStore('series', { autoIncrement: true, keyPath: 'uuid' })
-					db.createObjectStore('downloads', { autoIncrement: true, keyPath: 'uuid' })
-				}
+        // return await new Promise<SerieWordpress[]>(
+		// 	(resolve, reject) => {
+		// 		let open = indexedDB.open('squid', 1)
 
-				open.onsuccess = () => {
-					var transaction = open.result.transaction("series", 'readwrite');
-					var objectStore = transaction.objectStore("series");
-					var request = objectStore.getAll();
+		// 		open.onupgradeneeded = () => {
+		// 			console.info('Foi preciso recriar o BD')
+		// 			let db = open.result
+		// 			db.createObjectStore('series', { autoIncrement: true, keyPath: 'uuid' })
+		// 			db.createObjectStore('downloads', { autoIncrement: true, keyPath: 'uuid' })
+		// 		}
+
+		// 		open.onsuccess = () => {
+		// 			var transaction = open.result.transaction("series", 'readwrite');
+		// 			var objectStore = transaction.objectStore("series");
+		// 			var request = objectStore.getAll();
 		
-					request.onerror = function(event) {
-						reject(event)
-					};
-					request.onsuccess = function(event) {
-						resolve(request.result as SerieWordpress[]);
-					};
-				}
+		// 			request.onerror = function(event) {
+		// 				reject(event)
+		// 			};
+		// 			request.onsuccess = function(event) {
+		// 				resolve(request.result as SerieWordpress[]);
+		// 			};
+		// 		}
 				
-			}
-		);
+		// 	}
+		// );
     }
 )
 

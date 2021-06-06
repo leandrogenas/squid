@@ -2,7 +2,7 @@ import { Button, Classes, InputGroup, Intent, NumericInput, PanelProps } from "@
 import { Cell, Column, ICellProps, RenderMode, Table } from "@blueprintjs/table";
 import React, { createRef, ReactElement, useState } from "react";
 import { useSelector } from "react-redux";
-import { selectSeries } from "../../reducers/Series";
+import { selectSeries } from "../../reducers/Series/seriesSlice";
 import { useAppSelector } from "../../store";
 import { SerieWordpress, Site } from "../../types";
 import PainelLinks from "./links.panel";

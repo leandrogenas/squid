@@ -5,7 +5,7 @@ import Layout from '../components/Layout'
 import { Cell, Column, RenderMode, Table, TableLoadingOption } from "@blueprintjs/table";
 import { Button, ButtonGroup, Classes, Drawer, ProgressBar } from '@blueprintjs/core'
 import { AppDispatch, AppState, useAppDispatch, useAppSelector } from '../store'
-import { limparDownloads, listarDownloadsThunk, selectDownloads } from '../reducers/Downloads'
+import { limparDownloads, listarDownloadsThunk, selectDownloads } from '../reducers/Downloads/downloadsSlice'
 import { Download, ListagemDownloads, Tabela } from '../types';
 import { connect, useSelector } from 'react-redux';
 import { IMenuContext } from '@blueprintjs/table';
@@ -13,7 +13,7 @@ import { Menu } from '@blueprintjs/core';
 import { MenuItem } from '@blueprintjs/core';
 import { MenuDivider } from '@blueprintjs/core';
 import { FaTrash } from 'react-icons/fa';
-import { toggleDownloadsAberto } from '../reducers/Squid';
+import { toggleDownloadsAberto } from '../reducers/Squid/squidSlice';
 
 type Params = {
   uuid?: string
@@ -226,7 +226,7 @@ type Props = {
 function mapStateToProps(state: AppState) {
   return {
       downloadsState: state.downloads,
-      aberto: state.configs.downloadsAberto
+      aberto: state.squid.downloadsAberto
   }
 }
 
