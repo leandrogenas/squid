@@ -2,16 +2,12 @@ import { Button, Classes, InputGroup, Intent, NumericInput, PanelProps } from "@
 import { Cell, Column, ICellProps, RenderMode, Table } from "@blueprintjs/table";
 import React, { createRef, ReactElement, useState } from "react";
 import { useSelector } from "react-redux";
+import Site from "../../model/Site";
 import { selectSeries } from "../../reducers/Series/seriesSlice";
 import { useAppSelector } from "../../store";
-import { SerieWordpress, Site } from "../../types";
+import { PainelSeriesInfo } from "../../types";
 import PainelLinks from "./links.panel";
 import { Props } from "./[uuid]";
-
-export interface PainelSeriesInfo {
-    site: Site
-    series: any[]
-}
 
 
 const PainelSeries: React.FC<PanelProps<PainelSeriesInfo>> = props => {

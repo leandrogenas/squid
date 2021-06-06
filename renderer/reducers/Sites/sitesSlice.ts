@@ -1,8 +1,11 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
-import { ListagemSites } from "../../types";
 import { AppState } from "../../store";
 import { fetchSeriesFromWordpress } from "./sitesAPI";
 import { salvarSeries } from '../Series/seriesAPI';
+import ListagemSites from "../../model/ListagemSites";
+import * as api from "../Series/mp4seriesAPI";
+import Serie from "../../model/Serie";
+
 
 const initialState: ListagemSites = {
 	count: 0,
@@ -15,12 +18,26 @@ export const sincronizarSiteThunk = createAsyncThunk(
 	'sites/sincronizar',
 	async (siteUUID: string) => 
 	{
-		
-
 		const series = await fetchSeriesFromWordpress(1);
 		console.log('series obtidas: ' + series.length);
 		console.log('gravando no indexed db');
-		const ok = await salvarSeries(siteUUID, series);
+		const ok = await salvarSeries(series.map(s => {
+			try{
+				return {
+					...s,
+					siteUUID: siteUUID,
+					tituloShow: api.limparTituloSlug(s.slug),
+					links: api.extrairLinks(s),
+					infos: api.extrairInfosPost(s)
+				} as Serie;
+			}catch(e){
+				console.error(e);
+				return {
+					...s,
+					siteUUID: siteUUID,
+				}
+			}
+		}));
 		console.log('resultado da gravação: ' + ok);
 
 		return series;
@@ -69,10 +86,11 @@ export const sitesSlice = createSlice({
 	extraReducers: builder => 
 	{
 		builder
-			.addCase(sincronizarSiteThunk.pending, state => { state.status = 'carregando' })
+			.addCase(sincronizarSiteThunk.pending, state => {
+				state.status = 'carregando' 
+			})
 			.addCase(sincronizarSiteThunk.fulfilled, (state, action) => 
 			{
-                console.log('ae', action);
 				state.status = 'parado';
 				state.values = action.payload
 			})

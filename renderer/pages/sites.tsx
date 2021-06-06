@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react"
 
 import CardSite from "../components/Site";
-import { Site } from "../types";
 
 
 const Series: React.FC = () => {

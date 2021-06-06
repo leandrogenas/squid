@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction, ThunkAction } from "@reduxjs/toolkit"
-import { Download, SquidState } from "../../types";
+import SquidState from "../../model/SquidState";
 import { AppState } from "../../store";
 import { sincronizarSite, statusMega } from "./squidAPI";
 

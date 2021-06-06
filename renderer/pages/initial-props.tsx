@@ -2,10 +2,9 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import Layout from '../components/Layout'
 import List from '../components/List'
-import { Site, User } from '../types'
 
 type Props = {
-  items: User[]
+  items: any[]
   pathname: string
 }
 
@@ -26,7 +25,7 @@ const WithInitialProps = ({ items }: Props) => {
 }
 
 export async function getStaticProps() {
-  const items: Site[] = [
+  const items: any[] = [
     { 
       status: 'sincronizado',
       uuid: '9666e8bb-c801-431f-9d9c-94443f3ccd91',

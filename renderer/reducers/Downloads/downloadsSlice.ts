@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction, ThunkAction } from "@reduxjs/toolkit"
-import { Download, ListagemDownloads, ListagemSites } from "../../types";
+import Download from "../../model/Download";
+import ListagemDownloads from "../../model/ListagemDownloads";
 import { AppState } from "../../store";
 import { listarDownloads, novoDownload } from "./downloadsAPI";
 // import { fetchSeriesFromWordpress, sincronizarSite } from "./downloadsAPI";

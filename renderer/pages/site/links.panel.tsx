@@ -2,7 +2,6 @@ import { Button, Classes, Intent, NumericInput, PanelProps, Position, Pre, Tab, 
 import { Cell, Column, ICellProps, Table } from "@blueprintjs/table";
 import { AxiosInstance } from "axios";
 import React, { createRef, ReactElement, useRef, useState } from "react";
-import { Download, LinkMega, SerieWordpress, Site } from "../../types";
 import { Props } from "./[uuid]";
 import * as CSSselect from 'css-select'
 
@@ -12,6 +11,8 @@ import { novoDownloadThunk } from "../../reducers/Downloads/downloadsSlice";
 import { connect } from "react-redux";
 import { useEffect } from "react";
 import { htmlToDOM, Element } from "html-react-parser";
+import Link, { ProvedorLink } from "../../model/Link";
+import Download from "../../model/Download";
 //import { adicionar as novoDownload } from "../../reducers/Downloads";
 
 export interface PainelLinksInfo {
@@ -21,7 +22,7 @@ export interface PainelLinksInfo {
 
 type LinkCellRenderer = (rowIndex: number, columnIndex: number) => ReactElement<ICellProps>
 
-type Tabela = (data: LinkMega[]) => {
+type Tabela = (data: Link[]) => {
   coluna: {
     titulo: LinkCellRenderer
     link: LinkCellRenderer
@@ -31,7 +32,7 @@ type Tabela = (data: LinkMega[]) => {
 }
 
 type LinkPainel = {
-    link: LinkMega,
+    link: Link,
     aguardando: boolean
 }
 
@@ -109,15 +110,12 @@ const Toast = (typeof window !== 'undefined') ?
 const PainelLinks: React.FC<PanelProps<PainelLinksInfo>> = props => {
     
 
-    const [links, setLinks] = useState<any[]>([]);
+    const [links, setLinks] = useState<Link[]>(props.serie.links);
     const [isWaiting, setIsWaiting] = useState(false);
     const dispatch = useAppDispatch()
-
-    const [megaCmdStdout, setMegaCmdStdout] = useState();
-
     
 
-    const downloadLink = (tipo: 'Mega' | 'PandaFiles', rowIdx: number) => {
+    const downloadLink = (tipo: ProvedorLink, rowIdx: number) => {
         setIsWaiting(true);
 
         const linksNovo = Object.assign(links, {});
@@ -159,38 +157,13 @@ const PainelLinks: React.FC<PanelProps<PainelLinksInfo>> = props => {
 
     useEffect(
         () => {
-            if(links.length > 0)
-                return;
-
-                const html = htmlToDOM(props.serie.html);
-                
-                const elmLinks: Element[] | null = CSSselect
-                    .selectAll('[href^="http://url.baixarseriesmp4.com"]', html);
-        
-                const linkList = elmLinks.map(elmLink => {
-                    if(!elmLink.attribs.hasOwnProperty('href'))
-                        return;
-
-
-                    const elmEpi = elmLink.parent?.children[0] as unknown as Text;
-                    const elmTipo = elmLink.children[0] as unknown as Text;
-                    if(!elmTipo.hasOwnProperty('data') || !['Mega', 'PandaFiles'].includes(elmTipo.data))
-                        return;
-
-                    return { 
-                        tipo: elmTipo.data,
-                        episodio: elmEpi.data ?? '??',
-                        linkOriginal: elmLink.attribs.href 
-                    };
-                })
-                
-                setLinks(linkList);
+            // carregar links
             
         }, 
         [links]
     )
 
-    const gerarLink = (tipo: 'Mega' | 'PandaFiles', rowIdx: number) => {
+    const gerarLink = (tipo: ProvedorLink, rowIdx: number) => {
         const linksNovo = Object.assign(links, {});
         const linkFilter = linksNovo.filter(link => link.tipo == tipo)[rowIdx];
         
@@ -219,8 +192,8 @@ const PainelLinks: React.FC<PanelProps<PainelLinksInfo>> = props => {
     const [abaSelecionada, setAbaSelecionada] = useState('mega')
 
 
-    const abaTipo = (tp: 'Mega' | 'PandaFiles') => {
-        const linksFilter = links.filter(link => link.tipo == tp);
+    const abaTipo = (tp: ProvedorLink) => {
+        const linksFilter = links.filter(link => link.provedor == tp);
         return (
             <>
                 <Table 
@@ -232,7 +205,7 @@ const PainelLinks: React.FC<PanelProps<PainelLinksInfo>> = props => {
                     <Column key={0} name="Episódio" cellRenderer={(rowIndex, columnIndex) => {
                         return (
                             <Cell>
-                            {linksFilter[rowIndex].episodio}
+                            {linksFilter[rowIndex].titulo}
                             </Cell>
                         )
                         }} />
@@ -281,13 +254,13 @@ const PainelLinks: React.FC<PanelProps<PainelLinksInfo>> = props => {
                 onChange={mudarAbaTipo}
                 selectedTabId={abaSelecionada}
              >
-                 <Tab id="mega" title="Mega" panel={abaTipo('Mega')} />
-                 <Tab id="panda" title="Panda" panel={abaTipo('PandaFiles')} />
+                 <Tab id="mega" title="Mega" panel={abaTipo('MEGA')} />
+                 <Tab id="panda" title="Panda" panel={abaTipo('PANDA')} />
             </Tabs>
            
-            <Pre>
+            {/* <Pre>
                 {megaCmdStdout}
-            </Pre>
+            </Pre> */}
         </>
     );
 };

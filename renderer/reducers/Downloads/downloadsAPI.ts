@@ -1,6 +1,6 @@
 //import axios from "axios";
-import SquidDB, { idb } from "../../model/SquidDB"
-import { Download, Site } from "../../types"
+import Download from "../../model/Download";
+import SquidDB, { idb } from "../../model/SquidIDB"
 
 // export async function sincronizarSite(id: number)
 //     : Promise<{ data: number }> 
@@ -27,10 +27,17 @@ import { Download, Site } from "../../types"
 
 export async function listarDownloads()
 {
-  return idb.downloads.toArray();
+  return idb.download.toArray();
 }
 
 export async function novoDownload(download: Download)
 {
-  return await idb.downloads.put(download) as unknown as string;
+  return await idb.download.put(download) as unknown as string;
+}
+
+export function obterPerc(str: string, tipo: 'Mega' | 'Panda')
+{
+  return (tipo == 'Mega')
+    ? parseFloat(str.substr(-11, 5))
+    : (([baixado, total]) => parseFloat(baixado) / parseFloat(total))(str.split('/'))
 }

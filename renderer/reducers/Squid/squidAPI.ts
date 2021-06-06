@@ -1,5 +1,6 @@
 //import axios from "axios";
-import { Site } from "../../types"
+
+import Site from "../../model/Site";
 
 export async function statusMega()
 {

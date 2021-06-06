@@ -2,11 +2,10 @@ import React, { createRef, useRef, useState, useEffect, RefObject, EffectCallbac
 
 // import { NextPageContext } from 'next'
 import Layout from '../../components/Layout'
-import { ListagemSeries, ListagemSites, SerieWordpress, Site, User } from '../../types'
 
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { Button, H5, Panel, PanelStack2, Pre, ProgressBar, Switch, UL } from '@blueprintjs/core'
-import PainelSeries, { PainelSeriesInfo } from './series.panel'
+import PainelSeries from './series.panel'
 import { connect } from 'react-redux'
 import { AppDispatch, AppState, makeStore, useAppDispatch, useAppSelector } from '../../store'
 import { listarSeriesThunk, selectSeries } from '../../reducers/Series/seriesSlice'
@@ -14,45 +13,13 @@ import { listar, selectSites, sincronizarSiteThunk } from '../../reducers/Sites/
 import { fetchSeriesFromWordpress } from '../../reducers/Sites/sitesAPI'
 import parse, { htmlToDOM, Element, Text } from 'html-react-parser';
 import * as CSSselect from 'css-select';
+import ListagemSites from '../../model/ListagemSites'
+import Site from '../../model/Site'
+import SeriesHandler from '../../model/SeriesHandler'
 
-enum BaixavelTipo {
-  SERIE, FILME, ANIME
-}
 
-enum LinkTipo {
-  MEGA, PANDA
-}
 
-type BaixavelLink = {
-  tipo: LinkTipo
-  url: string
-}
 
-type Baixavel = {
-	tipo: BaixavelTipo
-	nome: string
-	links: BaixavelLink[]
-}
-
-interface SerieHandler extends Baixavel {
-  obterLinks(): Promise<BaixavelLink[]>
-}
-
-class SerieMP4Series implements SerieHandler {
-  tipo = BaixavelTipo.SERIE
-  nome = ''
-  links = []
-
-  async obterLinks()
-  {
-    return new Promise<BaixavelLink[]>(
-      (resolve, reject) => 
-      {
-        resolve([])
-      }
-    );
-  }
-}
 
 export type Params = {
   uuid?: string
@@ -61,9 +28,6 @@ export type Params = {
 export type Props = {
   siteUUID: string
   errors?: string
-  sites?: ListagemSites
-  listarSeries: () => any,
-  sincronizarSite: (uuid: string) => any
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -88,9 +52,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { uuid } = params as Params;
   const { dispatch, getState } = makeStore();
 
-  // const series = await dispatch(listarSeriesThunk(1));
-
-  // console.log(series);
+  const site = getState();
 
   return {
     props: {
@@ -148,7 +110,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 // }
 
 
-const InitialPropsDetail = ({ siteUUID, errors, sites, listarSeries, sincronizarSite }: Props) => {
+const PaginaSite = ({ siteUUID, errors }: Props) => {
   if (errors) {
     return (
       <Layout title={`Error | Next.js + TypeScript + Electron Example`}>
@@ -159,18 +121,16 @@ const InitialPropsDetail = ({ siteUUID, errors, sites, listarSeries, sincronizar
     )
   }  
 
-  // const [sincronizando, estaSincronizando] = useState(site.sincronizando);
-  const [megaCmdStdout, setMegaCmdStdout] = useState();
-
   const dispatch = useAppDispatch()
   const series = useAppSelector(selectSeries);
+  // const site = useAppSelector(selectSites);
 
 
   useEffect(() => {
     if(series.status != 'aguardando')
       return;
     
-    listarSeries()
+    dispatch(listarSeriesThunk())
   }, [series])
 
 
@@ -228,26 +188,4 @@ const InitialPropsDetail = ({ siteUUID, errors, sites, listarSeries, sincronizar
   )
 }
 
-function mapStateToProps(state: AppState) {
-  return {
-    sites: state.sites
-  }
-}
-
-// export default InitialPropsDetail;
-
-export default connect(
-  mapStateToProps,
-  {
-    listarSeries: () => {
-      return function (dispatch: AppDispatch) {
-        return dispatch(listarSeriesThunk(1));
-      }
-    },
-    sincronizarSite: (uuid: string) => {
-      return function (dispatch: AppDispatch) {
-        return dispatch(sincronizarSiteThunk(uuid));
-      }
-    }
-  }
-)(InitialPropsDetail)
+export default PaginaSite;

@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react'
 import Layout from '../components/Layout'
 import { AppDispatch } from '../store'
-import { SquidState } from '../types';
-import { connect } from 'react-redux';
-import { iniciarMegaThunk, pararMegaThunk } from '../reducers/Squid/squidSlice';
+import { connect } from'react-redux';
+import SquidState from '../model/SquidState';
 
 
 type Props = {
@@ -14,7 +13,7 @@ type Props = {
 const Configs = (props: Props) => {
   
 	useEffect(() => {
-		if(props.configsState.configMega.status == 'iniciando')
+		if(props.configsState.configMega.status == 'rodando')
 			return
 
 		//props.controleMega('iniciar');
@@ -40,12 +39,6 @@ function mapStateToProps(state) {
 export default connect(
   mapStateToProps,
   {
-    controleMega: (op: 'iniciar' | 'parar') => {
-      return function (dispatch: AppDispatch) {
-        return (op == 'iniciar')
-            ? dispatch(iniciarMegaThunk())
-            : dispatch(pararMegaThunk())
-      }
-    }
+    
   }
 )(Configs)

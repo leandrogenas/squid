@@ -14,6 +14,7 @@ import { MenuItem } from '@blueprintjs/core';
 import { MenuDivider } from '@blueprintjs/core';
 import { FaTrash } from 'react-icons/fa';
 import { toggleDownloadsAberto } from '../reducers/Squid/squidSlice';
+import { obterPerc } from '../reducers/Downloads/downloadsAPI';
 
 type Params = {
   uuid?: string
@@ -39,16 +40,16 @@ const Downloads = (props) =>
       if((!downloads || downloads.length == 0) && !carregando){
         setCarregando(true);
         props.getDownloads().then(data => {
-          setDownloads(data.payload);
+          // setDownloads(data.payload);
           
-          const progressosRaw: Progresso[] = data.payload.map(download => {
-            return {
-              downloadUUID: download.uuid,
-              downloadTipo: download.tipo,
-              perc: 0
-            }
-          })
-          setProgressos(progressosRaw);
+          // const progressosRaw: Progresso[] = data.payload.map(download => {
+          //   return {
+          //     downloadUUID: download.uuid,
+          //     downloadTipo: download.tipo,
+          //     perc: 0
+          //   }
+          // })
+          // setProgressos(progressosRaw);
 
           
 
@@ -72,9 +73,7 @@ const Downloads = (props) =>
               return {
                 downloadUUID: p.downloadUUID,
                 downloadTipo: p.downloadTipo,
-                perc: (p.downloadTipo == 'Mega')
-                  ? parseFloat(args.substr(-11, 5))
-                  : (([baixado, total]) => parseFloat(baixado) / parseFloat(total))(args.split('/'))
+                perc: obterPerc(args, p.downloadTipo)
               }
 
               
