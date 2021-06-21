@@ -2,7 +2,7 @@
   "name": "squid",
   "productName": "Squid Tasker",
   "description": "Scraper de conteúdos",
-  "version": "0.1.20210509",
+  "version": "0.2.20210621",
   "license": "UNLICENSED",
   "main": "target/index.js",
   "author": {
