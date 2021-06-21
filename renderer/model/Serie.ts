@@ -3,7 +3,7 @@ import InfosPostMP4Series from "./InfosPostMP4Series";
 import Link from "./Link";
 
 export default interface Serie extends Baixavel {
-    tipo: 'serie'
+    tipo: 'SERIE'
 	slug: string
 	tituloShow: string
 	wpCategory: number
@@ -12,4 +12,5 @@ export default interface Serie extends Baixavel {
 	sinopse: string
 	html: string
 	infos?: InfosPostMP4Series
+	linksConvertidos?: Link[]
 }

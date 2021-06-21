@@ -1,21 +1,13 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit'
 
-import siteReducer from './reducers/Sites/sitesSlice'
-import downloadsReducer from './reducers/Downloads/downloadsSlice'
-import seriesReducer from './reducers/Series/seriesSlice'
-import squidReducer from './reducers/Squid/squidSlice'
-
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
+
+import squidReducer from './reducers/squidSlice'
 
 export function makeStore() {
   return configureStore({
-    reducer: { 
-      sites: siteReducer,
-      downloads: downloadsReducer,
-      series: seriesReducer,
-      squid: squidReducer
-    },
-  })
+    reducer: squidReducer
+  });
 }
 
 const store = makeStore()

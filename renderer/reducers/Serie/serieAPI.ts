@@ -6,7 +6,8 @@ import SquidDB, { idb } from '../../model/SquidIDB'
 
 export async function listarSeriesDexie(count: number = 1)
 {
-    return idb.serie.toArray();
+
+    return idb.serie.toArray() as Promise<Serie[]>;
 }
 
 export async function salvarSeries(series: Serie[])

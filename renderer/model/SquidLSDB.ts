@@ -1,22 +1,4 @@
 
-class SquidLSDB extends Storage {
+export const LSDB_SITES = '@squid/sites';
 
 
-    private constructor()
-    {
-        super();
-    }
-
-    static getInstance()
-    {
-        if(!window || !window.localStorage)
-            throw new Error('LocalStorage não está disponível');
-
-        return new SquidLSDB;
-    }
-
-}
-
-export const lsDB = SquidLSDB.getInstance();
-
-export default SquidLSDB;

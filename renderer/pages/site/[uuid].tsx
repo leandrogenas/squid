@@ -8,14 +8,14 @@ import { Button, H5, Panel, PanelStack2, Pre, ProgressBar, Switch, UL } from '@b
 import PainelSeries from './series.panel'
 import { connect } from 'react-redux'
 import { AppDispatch, AppState, makeStore, useAppDispatch, useAppSelector } from '../../store'
-import { listarSeriesThunk, selectSeries } from '../../reducers/Series/seriesSlice'
-import { listar, selectSites, sincronizarSiteThunk } from '../../reducers/Sites/sitesSlice'
-import { fetchSeriesFromWordpress } from '../../reducers/Sites/sitesAPI'
 import parse, { htmlToDOM, Element, Text } from 'html-react-parser';
 import * as CSSselect from 'css-select';
 import ListagemSites from '../../model/ListagemSites'
 import Site from '../../model/Site'
 import SeriesHandler from '../../model/SeriesHandler'
+import { selectSquid } from '../../reducers/squidSlice'
+import { listarSeriesThunk } from '../../reducers/Serie/serieThunks'
+import SerieMP4Series from '../../model/SerieMP4Series'
 
 
 
@@ -122,29 +122,33 @@ const PaginaSite = ({ siteUUID, errors }: Props) => {
   }  
 
   const dispatch = useAppDispatch()
-  const series = useAppSelector(selectSeries);
+  const squid = useAppSelector(selectSquid);
   // const site = useAppSelector(selectSites);
 
+  const [series, setSeries] = useState<SerieMP4Series[]>(squid.series);
 
   useEffect(() => {
-    if(series.status != 'aguardando')
+    if(series.length > 0)
       return;
     
-    dispatch(listarSeriesThunk())
+    dispatch(listarSeriesThunk()).then(data => {
+      setSeries(data.payload as SerieMP4Series[]);
+    })
   }, [series])
 
+  // console.log(squid.status);
+  // if(squid.status !== 'pronto'){
+  //   return (
+  //     <h1>Carregando...</h1>
+  //   )
+  // }
 
-  if(series.status != 'carregado'){
-    return (
-      <h1>Carregando...</h1>
-    )
-  }
-
+  console.log(series);
 
   const initialPanel: Panel<any> = {
     props: {
         site: siteUUID,
-        series: series.values
+        series: series
     },
     renderPanel: PainelSeries,
     title: "Séries",

@@ -33,22 +33,25 @@ const uuid_1 = require("uuid");
 const CSSselect = __importStar(require("css-select"));
 const html_react_parser_1 = require("html-react-parser");
 const DownloadManager = __importStar(require("electron-download-manager"));
-DownloadManager.register();
-// Packages
+// import webdriver, {By, Browser, WebDriver} from "selenium-webdriver";
+// import chrome from 'selenium-webdriver/chrome';
 const electron_1 = require("electron");
 const electron_is_dev_1 = __importDefault(require("electron-is-dev"));
 const electron_next_1 = __importDefault(require("electron-next"));
 const fs_1 = require("fs");
-//import reload from 'electron-reload'
-// if(isDev)
-//   reload(join(__dirname, '..', 'renderer'))
+DownloadManager.register();
 let mainWindow;
-// Prepare the renderer once the app is ready
+// let driver: WebDriver | null;
 electron_1.app.on('ready', async () => {
     await electron_next_1.default('./renderer');
+    // driver = await new webdriver.Builder()
+    //     .usingServer('http://localhost:9515')
+    //     .forBrowser(Browser.CHROME)
+    //     .setChromeOptions(new chrome.Options().addArguments('user-data-dir=%APPDATA%'))
+    //     .build();
     mainWindow = new electron_1.BrowserWindow({
-        width: 800,
-        height: 600,
+        width: 1280,
+        height: 800,
         titleBarStyle: 'customButtonsOnHover',
         frame: false,
         webPreferences: {
@@ -104,6 +107,8 @@ electron_1.app.on('ready', async () => {
             mainWindow?.webContents.send('mega-stdout', data + "");
         });
     });
+    // await driver.get('https://gmail.com')
+    // driver.findElement(By.id('identifierId')).sendKeys('leandro.fabri96@gmail.com\n');
 });
 // Quit the app once all windows are closed
 electron_1.app.on('window-all-closed', electron_1.app.quit);
@@ -130,6 +135,7 @@ electron_1.ipcMain.on('janela', (_event, comando) => {
 });
 // listen the channel `message` and resend the received message to the renderer process
 electron_1.ipcMain.on('converter-link', (event, link) => {
+    console.log(`convertendo link ${link}`);
     const url = new URL(link);
     const opts = {
         host: url.hostname,

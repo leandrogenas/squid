@@ -3,7 +3,6 @@ import { Cell, Column, ICellProps, RenderMode, Table } from "@blueprintjs/table"
 import React, { createRef, ReactElement, useState } from "react";
 import { useSelector } from "react-redux";
 import Site from "../../model/Site";
-import { selectSeries } from "../../reducers/Series/seriesSlice";
 import { useAppSelector } from "../../store";
 import { PainelSeriesInfo } from "../../types";
 import PainelLinks from "./links.panel";

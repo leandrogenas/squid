@@ -9,28 +9,31 @@ import { v4 as uuidv4 } from 'uuid';
 import * as CSSselect from 'css-select';
 import { Comment, Element, htmlToDOM } from 'html-react-parser';
 import * as DownloadManager from 'electron-download-manager';
-
-DownloadManager.register();
-
-// Packages
+// import webdriver, {By, Browser, WebDriver} from "selenium-webdriver";
+// import chrome from 'selenium-webdriver/chrome';
 import { BrowserWindow, app, ipcMain, IpcMainEvent } from 'electron'
 import isDev from 'electron-is-dev'
 import prepareNext from 'electron-next'
 import { createWriteStream, writeFileSync } from 'fs';
-//import reload from 'electron-reload'
 
-// if(isDev)
-//   reload(join(__dirname, '..', 'renderer'))
+DownloadManager.register();
+
 let mainWindow: Electron.BrowserWindow | null
 
+// let driver: WebDriver | null;
 
-// Prepare the renderer once the app is ready
 app.on('ready', async () => {
   await prepareNext('./renderer')
 
+  // driver = await new webdriver.Builder()
+  //     .usingServer('http://localhost:9515')
+  //     .forBrowser(Browser.CHROME)
+  //     .setChromeOptions(new chrome.Options().addArguments('user-data-dir=%APPDATA%'))
+  //     .build();
+
   mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1280,
+    height: 800,
     titleBarStyle: 'customButtonsOnHover',
     frame: false,
     webPreferences: {
@@ -89,7 +92,9 @@ app.on('ready', async () => {
       mainWindow?.webContents.send('mega-stdout', data + "");
     });
   })
-  
+
+  // await driver.get('https://gmail.com')
+  // driver.findElement(By.id('identifierId')).sendKeys('leandro.fabri96@gmail.com\n');
 
 })
 
@@ -121,7 +126,7 @@ ipcMain.on('janela', (_event: IpcMainEvent, comando: 'maximizar' | 'minimizar' |
 
 // listen the channel `message` and resend the received message to the renderer process
 ipcMain.on('converter-link', (event: IpcMainEvent, link: string) => {
-
+  console.log(`convertendo link ${link}`);
   const url = new URL(link);
   const opts: RequestOptions = {
     host: url.hostname,

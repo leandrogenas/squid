@@ -1,18 +1,8 @@
-import { createAsyncThunk, createSlice, PayloadAction, ThunkAction } from "@reduxjs/toolkit"
+import { createAsyncThunk } from "@reduxjs/toolkit";
 import Download from "../../model/Download";
-import ListagemDownloads from "../../model/ListagemDownloads";
-import { AppState } from "../../store";
-import { listarDownloads, novoDownload } from "./downloadsAPI";
-// import { fetchSeriesFromWordpress, sincronizarSite } from "./downloadsAPI";
+import { listarDownloads, novoDownload } from "./downloadAPI";
 
-const initialState: ListagemDownloads = {
-	count: 0,
-	status: 'aguardando',
-	values: []
-}
-
-
-export const pararAsync = createAsyncThunk(
+export const pararDownloadThunk = createAsyncThunk(
 	'downloads/parar',
 	async (uuid: number) => 
 	{
@@ -24,9 +14,9 @@ export const pararAsync = createAsyncThunk(
 
 export const listarDownloadsThunk = createAsyncThunk(
     'downloads/listar',
-    async (qtd: number = 1): Promise<Download[]> => 
+    (qtd: number = 1): Promise<Download[]> =>
     {
-		return await listarDownloads();
+		return listarDownloads();
 		// return new Promise<Download[]>((resolve, reject) => {
 		// 	let open = indexedDB.open('squid', 1)
 	
@@ -56,9 +46,9 @@ export const listarDownloadsThunk = createAsyncThunk(
 
 export const novoDownloadThunk = createAsyncThunk(
 	'downloads/novo',
-	async (download: Download): Promise<string> => 
+	(download: Download): Promise<string> =>
 	{
-		return await novoDownload(download);
+		return novoDownload(download);
 		// return new Promise((resolve, reject) => {
 		// 	let open = indexedDB.open('squid', 1)
 			
@@ -87,57 +77,30 @@ export const novoDownloadThunk = createAsyncThunk(
 	}
 )
 
-export const downloadsSlice = createSlice({
-	name: 'downloads',
-	initialState,
-	reducers: {
-		listar: state => 
-		{
-			console.log('listar', state);
-		},
-		adicionar: (state, uuid) => 
-		{
-			console.log('adicionar', state, uuid);
-		},
-		excluir: state => 
-		{
-			console.log('excluir', state);
-		},	
-		limparDownloads: state => 
-		{
-			console.log('limpando');
-			state.values = []
-		}
-	},
-	extraReducers: builder => 
-	{
-		builder
-			.addCase(novoDownloadThunk.pending, (state, _action) => 
-			{
-                state.status = 'adicionando'
-			})
-			.addCase(novoDownloadThunk.fulfilled, (state, action: any) => 
-			{
-				console.log(state, action)
-				state.status = 'aguardando'
-				state.values = action.payload.payload
-			});
-		builder
-			.addCase(listarDownloadsThunk.pending, (state, _action) => 
-			{
-				state.status = 'buscando'
-			})
-			.addCase(listarDownloadsThunk.fulfilled, (state, action: any) => 
-			{
-				console.log(state, action)
-				state.status = 'aguardando'
-				state.values = action.payload.payload
-			})
-	}
-})
+const extraReducers = builder => 
+{
+    builder
+        .addCase(novoDownloadThunk.pending, (state, _action) => 
+        {
+            state.status = 'adicionando'
+        })
+        .addCase(novoDownloadThunk.fulfilled, (state, action: any) => 
+        {
+            console.log(state, action)
+            state.status = 'aguardando'
+            state.values = action.payload.payload
+        });
+    builder
+        .addCase(listarDownloadsThunk.pending, (state, _action) => 
+        {
+            state.status = 'buscando'
+        })
+        .addCase(listarDownloadsThunk.fulfilled, (state, action: any) => 
+        {
+            console.log(state, action)
+            state.status = 'aguardando'
+            state.values = action.payload.payload
+        })
+}
 
-export const { listar, adicionar, excluir, limparDownloads } = downloadsSlice.actions
-
-export const selectDownloads = (state: AppState) => state.downloads
-
-export default downloadsSlice.reducer
+export default extraReducers;

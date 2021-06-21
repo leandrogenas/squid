@@ -9,8 +9,7 @@ export default interface Link {
 	tipoIdioma: TipoIdiomaLink
 	formato: FormatoLink
     titulo: string
-	linkOriginal: string
-	linkConvertido?: string
+	url?: string
 }
 
 export interface LinkMega extends Link {

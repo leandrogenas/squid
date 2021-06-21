@@ -13,8 +13,8 @@ import {
 } from "react-icons/cg";
 
 import styled from "styled-components";
-import { Site } from "../types";
 import { useRouter } from "next/router";
+import Site from "../model/Site";
 
 const Secao = styled.div`
   display: flex;

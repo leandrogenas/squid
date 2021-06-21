@@ -5,16 +5,17 @@ import Layout from '../components/Layout'
 import { Cell, Column, RenderMode, Table, TableLoadingOption } from "@blueprintjs/table";
 import { Button, ButtonGroup, Classes, Drawer, ProgressBar } from '@blueprintjs/core'
 import { AppDispatch, AppState, useAppDispatch, useAppSelector } from '../store'
-import { limparDownloads, listarDownloadsThunk, selectDownloads } from '../reducers/Downloads/downloadsSlice'
-import { Download, ListagemDownloads, Tabela } from '../types';
 import { connect, useSelector } from 'react-redux';
 import { IMenuContext } from '@blueprintjs/table';
 import { Menu } from '@blueprintjs/core';
 import { MenuItem } from '@blueprintjs/core';
 import { MenuDivider } from '@blueprintjs/core';
 import { FaTrash } from 'react-icons/fa';
-import { toggleDownloadsAberto } from '../reducers/Squid/squidSlice';
-import { obterPerc } from '../reducers/Downloads/downloadsAPI';
+import Download from '../model/Download';
+import { obterPercentagem } from '../reducers/Download/downloadAPI';
+import ListagemDownloads from '../model/ListagemDownloads';
+import { listarDownloadsThunk } from '../reducers/Download/downloadThunks';
+import { toggleDownloadsAberto } from '../reducers/squidSlice';
 
 type Params = {
   uuid?: string
@@ -73,7 +74,7 @@ const Downloads = (props) =>
               return {
                 downloadUUID: p.downloadUUID,
                 downloadTipo: p.downloadTipo,
-                perc: obterPerc(args, p.downloadTipo)
+                perc: obterPercentagem(args, p.downloadTipo)
               }
 
               
@@ -225,7 +226,7 @@ type Props = {
 function mapStateToProps(state: AppState) {
   return {
       downloadsState: state.downloads,
-      aberto: state.squid.downloadsAberto
+      aberto: state.downloadsAberto
   }
 }
 
@@ -237,6 +238,6 @@ export default connect(mapStateToProps, {
       return dispatch(listarDownloadsThunk(0))
     }
   },
-  limpar: limparDownloads,
+  limpar: undefined,
   toggleAberto: toggleDownloadsAberto
 })(Downloads)

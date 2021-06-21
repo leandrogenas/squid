@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 
-import CardSite from "../components/Site";
+import CardSite from "../components/CardSite";
 
 
 const Series: React.FC = () => {

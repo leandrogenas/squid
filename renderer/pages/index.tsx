@@ -3,9 +3,10 @@ import Link from 'next/link'
 import Layout from '../components/Layout'
 import { Button, Pre } from '@blueprintjs/core'
 import {useAppDispatch, useAppSelector} from '../store'
-import { sincronizarSiteThunk } from '../reducers/Sites/sitesSlice'
-import {selectSquid, statusMegaThunk} from "../reducers/Squid/squidSlice";
-import { listarSeriesThunk, selectSeries } from '../reducers/Series/seriesSlice'
+import webdriver, {Browser} from 'selenium-webdriver';
+import { selectSquid } from '../reducers/squidSlice'
+import { sincronizarSiteThunk } from '../reducers/Site/siteThunks'
+import { listarSeriesThunk } from '../reducers/Serie/serieThunks'
 
 const IndexPage: React.FC = () => {
 
@@ -14,7 +15,6 @@ const IndexPage: React.FC = () => {
 
   const dispatch = useAppDispatch();
   const squid = useAppSelector(selectSquid);
-  const series = useAppSelector(selectSeries);
 
   useEffect(() => {
 

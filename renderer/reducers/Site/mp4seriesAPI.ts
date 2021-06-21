@@ -3,7 +3,6 @@ import Serie from "../../model/Serie";
 import { Text, Element, htmlToDOM } from "html-react-parser";
 import * as CSSselect from 'css-select';
 import Link, { FormatoLink, ProvedorLink, QualidadeLink, TipoIdiomaLink } from "../../model/Link";
-import { Console } from "console";
 
 type SecaoPostMP4Series = 'infos' | 'sinopse' | 'links' | 'n/a'
 
@@ -166,7 +165,7 @@ export function extrairLinks(serie: Serie)
 
             let provedor: ProvedorLink = 'OUTRO'
             provedor = obterProvedorLink(elmProvedor.data ?? '')
-            link.linkOriginal = elm.attribs.href; 
+            link.url = elm.attribs.href; 
             link.provedor = provedor;
             link.titulo = elmTitulo?.data 
                 ?? (elm.prev as Text).data
@@ -213,4 +212,19 @@ export function extrairTodosLinks(serie: Serie)
   })
 
   return linkList;
+}
+
+export function converterLink(link: Link): Link
+{
+    return {
+        ...link,
+        url: global.ipcRenderer.sendSync('converter-link', link.url),
+    }
+}
+
+export function converterLinks(links: Link[])
+    : Link[]
+{
+    const result: Link[] = Object.assign(links, {});
+    return result.map(converterLink);
 }

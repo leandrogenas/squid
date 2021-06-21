@@ -1,6 +1,6 @@
 //import axios from "axios";
 
-import Site from "../../model/Site";
+import Site from "../model/Site";
 
 export async function statusMega()
 {
@@ -34,6 +34,16 @@ export async function sincronizarSite(id: number)
     const result = await response.json()
   
     return result
+}
+
+export function obterTituloPagina(pathname: string)
+{
+  switch(pathname){
+    case '/index':
+    case '/': return 'Dashboard';
+    case '/sites': return 'Sites';
+    default: return ':uuid';
+  }
 }
 
 export function listarSites(count: number = 1)
