@@ -14,7 +14,7 @@ module.exports = {
   testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(ts|js)x?$',
   coverageDirectory: 'coverage',
   collectCoverageFrom: [
-    'src/**/*.{ts,tsx,js,jsx}',
-    '!src/**/*.d.ts',
+    'electron/**/*.{ts,tsx,js,jsx}', '!electron/**/*.d.ts',
+    'include/**/*.{ts,tsx,js,jsx}', '!include/**/*.d.ts',
   ],
 };

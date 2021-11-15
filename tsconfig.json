@@ -1,0 +1,28 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es2017",
+        "outDir": "build",
+        "rootDirs": [
+            "./modules/comum",
+            "./modules/principal",
+            "./modules/renderizador",
+        ],
+        "lib": [
+            "ES2015",
+            "ES2016",
+            "ES2017",
+            "DOM"
+        ],
+        "isolatedModules": true,
+        "moduleResolution": "node",
+        
+    },
+    "include": [
+        "modules/**/*.ts",
+        "modules/**/*.tsx",
+        "modules/**/*.jsx",
+        "modules/**/*.js",
+    ],
+    "exclude": ["**/node_modules", "**/dist"]
+}
