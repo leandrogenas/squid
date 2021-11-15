@@ -1,6 +1,6 @@
 {
   "name": "squid",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "license": "MIT",
   "private": true,
   "author": {
@@ -45,5 +45,4 @@
     "yarn": "^1.22.17",
     "yargs": "^17.2.1"
   }
-  
 }
