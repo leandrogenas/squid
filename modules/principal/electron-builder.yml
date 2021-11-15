@@ -1,0 +1,12 @@
+appId: dev.leand.squid
+productName: Squid
+copyright: leand.pro — 2021
+directories:
+  output: dist
+  buildResources: include
+files:
+  - from: .
+    filter:
+      - package.json
+      - dist
+publish: null

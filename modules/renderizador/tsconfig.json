@@ -9,6 +9,8 @@
     "jsx": "preserve",
     "lib": [
       "dom",
+      "es2015",
+      "es2016",
       "es2017"
     ],
     "module": "esnext",
@@ -21,13 +23,17 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
-    "target": "es6",
-    "outDir": "../target"
+    
+    "rootDir": ".",
+    "baseUrl": "src",
+    "outDir": "dist"
   },
   "exclude": [
     "node_modules"
   ],
   "include": [
+    "next-env.d.ts",
+    "electron-download-manager.d.ts",
     "**/*.ts",
     "**/*.tsx",
     "**/*.js"
