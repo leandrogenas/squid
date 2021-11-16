@@ -1,5 +1,5 @@
 import axios from "axios";
-import { v4 as uuidv4 } from 'uuid';
+
 
 function sleep(milliseconds) {
   const date = Date.now();
@@ -31,7 +31,7 @@ export const fetchSeriesFromWordpress = async (pages: number): Promise<any[]> =>
       response.data.forEach(post => {
         posts.push({
           tipo: 'serie',
-          uuid: uuidv4(),
+          uuid: 'uuidv4()',
           titulo: post?.title.rendered.replace('Baixar ', ''),
           html: post?.content.rendered,
           slug: post?.slug

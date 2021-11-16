@@ -7291,7 +7291,7 @@ __webpack_require__.r(__webpack_exports__);
 var mainWindow; // let driver: WebDriver | null;
 
 electron__WEBPACK_IMPORTED_MODULE_10__.app.on('ready', /*#__PURE__*/(0,D_Projetos_EO_squid_node_modules_next_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__["default"])( /*#__PURE__*/D_Projetos_EO_squid_node_modules_next_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee() {
-  var appUrl;
+  var port, appUrl;
   return D_Projetos_EO_squid_node_modules_next_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
@@ -7311,13 +7311,14 @@ electron__WEBPACK_IMPORTED_MODULE_10__.app.on('ready', /*#__PURE__*/(0,D_Projeto
               nodeIntegration: false,
               preload: (0,path__WEBPACK_IMPORTED_MODULE_2__.join)(__dirname, 'preload.js')
             }
-          });
-          mainWindow.megaServer = (0,child_process__WEBPACK_IMPORTED_MODULE_6__.spawn)('MEGAcmdServer.exe');
-          mainWindow.megaServer.on('data', function (data) {
-            console.log("megacli-server: ".concat(data));
-          });
-          mainWindow.megaShell = (0,child_process__WEBPACK_IMPORTED_MODULE_6__.spawn)('MEGAcmdShell.exe');
-          appUrl = (electron_is_dev__WEBPACK_IMPORTED_MODULE_11___default()) ? 'http://localhost:8000/' : url__WEBPACK_IMPORTED_MODULE_3__.format({
+          }); // mainWindow.megaServer = spawn('MEGAcmdServer.exe');
+          // mainWindow.megaServer.on('data', data => {
+          //   console.log(`megacli-server: ${data}`);
+          // })
+          // mainWindow.megaShell = spawn('MEGAcmdShell.exe');
+
+          port = process.argv[2];
+          appUrl = (electron_is_dev__WEBPACK_IMPORTED_MODULE_11___default()) ? "http://localhost:".concat(port, "/") : url__WEBPACK_IMPORTED_MODULE_3__.format({
             pathname: (0,path__WEBPACK_IMPORTED_MODULE_2__.join)(__dirname, 'renderer/index.html'),
             protocol: 'file:',
             slashes: true
@@ -7347,23 +7348,16 @@ electron__WEBPACK_IMPORTED_MODULE_10__.app.on('ready', /*#__PURE__*/(0,D_Projeto
               }
             });
           });
-          mainWindow.webContents.on('did-finish-load', function () {
-            var _mainWindow, _mainWindow3;
-
-            (_mainWindow = mainWindow) === null || _mainWindow === void 0 ? void 0 : _mainWindow.megaServer.on('data', function (data) {
-              var _mainWindow2;
-
-              (_mainWindow2 = mainWindow) === null || _mainWindow2 === void 0 ? void 0 : _mainWindow2.webContents.send('mega-stdout', data + "");
-            });
-            (_mainWindow3 = mainWindow) === null || _mainWindow3 === void 0 ? void 0 : _mainWindow3.megaShell.on('data', function (data) {
-              var _mainWindow4;
-
-              (_mainWindow4 = mainWindow) === null || _mainWindow4 === void 0 ? void 0 : _mainWindow4.webContents.send('mega-stdout', data + "");
-            });
+          mainWindow.webContents.on('did-finish-load', function () {// mainWindow?.megaServer.on('data', (data) => {
+            //   mainWindow?.webContents.send('mega-stdout', data + "");
+            // });
+            // mainWindow?.megaShell.on('data', (data) => {
+            //   mainWindow?.webContents.send('mega-stdout', data + "");
+            // });
           }); // await driver.get('https://gmail.com')
           // driver.findElement(By.id('identifierId')).sendKeys('leandro.fabri96@gmail.com\n');
 
-        case 9:
+        case 7:
         case "end":
           return _context.stop();
       }
@@ -7371,33 +7365,31 @@ electron__WEBPACK_IMPORTED_MODULE_10__.app.on('ready', /*#__PURE__*/(0,D_Projeto
   }, _callee);
 }))); // Quit the app once all windows are closed
 
-electron__WEBPACK_IMPORTED_MODULE_10__.app.on('window-all-closed', electron__WEBPACK_IMPORTED_MODULE_10__.app.quit);
-electron__WEBPACK_IMPORTED_MODULE_10__.ipcMain.on('mega', function (event, comando) {
-  var _mainWindow5, _mainWindow6;
+electron__WEBPACK_IMPORTED_MODULE_10__.app.on('window-all-closed', electron__WEBPACK_IMPORTED_MODULE_10__.app.quit); // ipcMain.on('mega', (event: IpcMainEvent, comando: 'status') => {
+//   console.log(comando);
+//   event.sender.send('mega', {
+//     shell: mainWindow?.megaShell.pid.toString(),
+//     server: mainWindow?.megaServer.pid.toString()
+// });
+// });
 
-  console.log(comando);
-  event.sender.send('mega', {
-    shell: (_mainWindow5 = mainWindow) === null || _mainWindow5 === void 0 ? void 0 : _mainWindow5.megaShell.pid.toString(),
-    server: (_mainWindow6 = mainWindow) === null || _mainWindow6 === void 0 ? void 0 : _mainWindow6.megaServer.pid.toString()
-  });
-});
 electron__WEBPACK_IMPORTED_MODULE_10__.ipcMain.on('janela', function (_event, comando) {
-  var _mainWindow12;
+  var _mainWindow6;
 
   if (comando == 'fechar') {
-    var _mainWindow7, _mainWindow8;
+    var _mainWindow, _mainWindow2;
 
-    (_mainWindow7 = mainWindow) === null || _mainWindow7 === void 0 ? void 0 : _mainWindow7.webContents.closeDevTools();
-    (_mainWindow8 = mainWindow) === null || _mainWindow8 === void 0 ? void 0 : _mainWindow8.close();
+    (_mainWindow = mainWindow) === null || _mainWindow === void 0 ? void 0 : _mainWindow.webContents.closeDevTools();
+    (_mainWindow2 = mainWindow) === null || _mainWindow2 === void 0 ? void 0 : _mainWindow2.close();
   }
 
   if (comando == 'maximizar') {
-    var _mainWindow9, _mainWindow10, _mainWindow11;
+    var _mainWindow3, _mainWindow4, _mainWindow5;
 
-    if ((_mainWindow9 = mainWindow) !== null && _mainWindow9 !== void 0 && _mainWindow9.isMaximized()) (_mainWindow10 = mainWindow) === null || _mainWindow10 === void 0 ? void 0 : _mainWindow10.restore();else (_mainWindow11 = mainWindow) === null || _mainWindow11 === void 0 ? void 0 : _mainWindow11.maximize();
+    if ((_mainWindow3 = mainWindow) !== null && _mainWindow3 !== void 0 && _mainWindow3.isMaximized()) (_mainWindow4 = mainWindow) === null || _mainWindow4 === void 0 ? void 0 : _mainWindow4.restore();else (_mainWindow5 = mainWindow) === null || _mainWindow5 === void 0 ? void 0 : _mainWindow5.maximize();
   }
 
-  if (comando == 'minimizar') (_mainWindow12 = mainWindow) === null || _mainWindow12 === void 0 ? void 0 : _mainWindow12.minimize();
+  if (comando == 'minimizar') (_mainWindow6 = mainWindow) === null || _mainWindow6 === void 0 ? void 0 : _mainWindow6.minimize();
 }); // listen the channel `message` and resend the received message to the renderer process
 
 electron__WEBPACK_IMPORTED_MODULE_10__.ipcMain.on('converter-link', function (event, link) {
@@ -7434,15 +7426,15 @@ electron__WEBPACK_IMPORTED_MODULE_10__.ipcMain.on('download-mega', function (eve
   console.log("".concat(uuid));
   var downloader = (0,child_process__WEBPACK_IMPORTED_MODULE_6__.spawn)('MEGAclient.exe', ['get', link, (0,path__WEBPACK_IMPORTED_MODULE_2__.join)(electron__WEBPACK_IMPORTED_MODULE_10__.app.getPath('downloads'))]);
   downloader.stdout.on('data', function (data) {
-    var _mainWindow13;
+    var _mainWindow7;
 
-    (_mainWindow13 = mainWindow) === null || _mainWindow13 === void 0 ? void 0 : _mainWindow13.webContents.send(uuid, data.toString());
+    (_mainWindow7 = mainWindow) === null || _mainWindow7 === void 0 ? void 0 : _mainWindow7.webContents.send(uuid, data.toString());
     process.stdout.write("".concat(data, " \r"));
   });
   downloader.stderr.on('data', function (data) {
-    var _mainWindow14;
+    var _mainWindow8;
 
-    (_mainWindow14 = mainWindow) === null || _mainWindow14 === void 0 ? void 0 : _mainWindow14.webContents.send(uuid, data.toString());
+    (_mainWindow8 = mainWindow) === null || _mainWindow8 === void 0 ? void 0 : _mainWindow8.webContents.send(uuid, data.toString());
     console.log(data.toString());
   });
   downloader.on('exit', function (code) {

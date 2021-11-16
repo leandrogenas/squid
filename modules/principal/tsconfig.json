@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "allowJs": true,
-    "alwaysStrict": true,
-    "esModuleInterop": true,
+    
+    
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "jsx": "preserve",
@@ -16,24 +16,22 @@
     ],
     "module": "esnext",
     "target": "es5",
-    "declaration": true,
+    
     "moduleResolution": "node",
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
-    "strict": true,
+    "strict": false,
+    
     "rootDir": ".",
-    "baseUrl": "electron",
-    "outDir": "dist"
+    // "baseUrl": "electron",
+    // "outDir": "dist"
   },
   "include": [
-    "electron-download.manager.ts",
-    "electron-next.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "**/*.js"
+    "electron/**/*",
+    "../renderizador/**/*"
   ],
   "exclude": ["node_modules", "dist", "app"]
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import {useRouter} from 'next/router'
-import * as uuid from 'uuid';
+
 import {
   Alignment,
   Breadcrumb,

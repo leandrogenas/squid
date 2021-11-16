@@ -42,14 +42,15 @@ app.on('ready', async () => {
     },
   })
 
-  mainWindow.megaServer = spawn('MEGAcmdServer.exe');
-  mainWindow.megaServer.on('data', data => {
-    console.log(`megacli-server: ${data}`);
-  })
-  mainWindow.megaShell = spawn('MEGAcmdShell.exe');
+  // mainWindow.megaServer = spawn('MEGAcmdServer.exe');
+  // mainWindow.megaServer.on('data', data => {
+  //   console.log(`megacli-server: ${data}`);
+  // })
+  // mainWindow.megaShell = spawn('MEGAcmdShell.exe');
 
+  const port = process.argv[2];
   const appUrl = isDev
-    ? 'http://localhost:8000/'
+    ? `http://localhost:${port}/`
     : url.format({
         pathname: join(__dirname, 'renderer/index.html'),
         protocol: 'file:',
@@ -85,12 +86,12 @@ app.on('ready', async () => {
   })
 
   mainWindow.webContents.on('did-finish-load', () => {
-    mainWindow?.megaServer.on('data', (data) => {
-      mainWindow?.webContents.send('mega-stdout', data + "");
-    });
-    mainWindow?.megaShell.on('data', (data) => {
-      mainWindow?.webContents.send('mega-stdout', data + "");
-    });
+    // mainWindow?.megaServer.on('data', (data) => {
+    //   mainWindow?.webContents.send('mega-stdout', data + "");
+    // });
+    // mainWindow?.megaShell.on('data', (data) => {
+    //   mainWindow?.webContents.send('mega-stdout', data + "");
+    // });
   })
 
   // await driver.get('https://gmail.com')
@@ -101,13 +102,13 @@ app.on('ready', async () => {
 // Quit the app once all windows are closed
 app.on('window-all-closed', app.quit)
 
-ipcMain.on('mega', (event: IpcMainEvent, comando: 'status') => {
-  console.log(comando);
-  event.sender.send('mega', {
-    shell: mainWindow?.megaShell.pid.toString(),
-    server: mainWindow?.megaServer.pid.toString()
-});
-});
+// ipcMain.on('mega', (event: IpcMainEvent, comando: 'status') => {
+//   console.log(comando);
+//   event.sender.send('mega', {
+//     shell: mainWindow?.megaShell.pid.toString(),
+//     server: mainWindow?.megaServer.pid.toString()
+// });
+// });
 
 ipcMain.on('janela', (_event: IpcMainEvent, comando: 'maximizar' | 'minimizar' | 'fechar') => {
 
