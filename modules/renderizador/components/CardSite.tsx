@@ -66,7 +66,7 @@ const CardSite: React.FC<Site> = (props: Site) => {
 
         <Card onClick={openSite} style={{backgroundColor: 'transparent', width: '100%'}} interactive elevation={2}>
             <H5>
-                <a href="#">{props.nome}</a>
+                <a href="#">{props.nome ?? ''}</a>
             </H5>
             <div className="site">
                 <div >

@@ -8,22 +8,22 @@ import { spawn } from 'child_process'
 import { v4 as uuidv4 } from 'uuid';
 import * as CSSselect from 'css-select';
 import { Comment, Element, htmlToDOM } from 'html-react-parser';
-import * as DownloadManager from 'electron-download-manager';
+// import * as DownloadManager from 'electron-download-manager';
 // import webdriver, {By, Browser, WebDriver} from "selenium-webdriver";
 // import chrome from 'selenium-webdriver/chrome';
 import { BrowserWindow, app, ipcMain, IpcMainEvent } from 'electron'
 import isDev from 'electron-is-dev'
-import prepareNext from 'electron-next'
+// import prepareNext from 'electron-next'
 import { createWriteStream, writeFileSync } from 'fs';
 
-DownloadManager.register();
+// DownloadManager.register();
 
 let mainWindow: Electron.BrowserWindow | null
 
 // let driver: WebDriver | null;
 
 app.on('ready', async () => {
-  await prepareNext('./renderer')
+  // await prepareNext('./renderer')
 
   // driver = await new webdriver.Builder()
   //     .usingServer('http://localhost:9515')

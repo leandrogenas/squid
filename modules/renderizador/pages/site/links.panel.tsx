@@ -81,7 +81,7 @@ const Toast = (typeof window !== 'undefined')
     : null;
 
 const PainelLinks: React.FC<PanelProps<PainelLinksInfo>> = props => {
-    const [links, setLinks] = useState<Link[]>(props.serie.links);
+    const [links, setLinks] = useState<Link[]>(props?.serie?.links);
     const [linksConvertidos] = useState<Link[]>([]);
     const [isWaiting, setIsWaiting] = useState(false);
     const [convertendo, setConvertendo] = useState(false);
@@ -155,6 +155,9 @@ const PainelLinks: React.FC<PanelProps<PainelLinksInfo>> = props => {
     const [abaSelecionada, setAbaSelecionada] = useState('mega')
 
     const episodios: string[] = [];
+    if(!links)
+        return null;
+        
     links.forEach((link) => {
         if(episodios.includes(link.titulo))
             return;

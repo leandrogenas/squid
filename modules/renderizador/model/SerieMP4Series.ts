@@ -1,9 +1,9 @@
-import { BaixavelTipo } from "./Baixavel";
+import Baixavel, { Baixaveis, BaixavelTipo } from "./Baixavel";
 import Link from "./Link";
 import SeriesHandler from "./SeriesHandler";
 
 export default class SerieMP4Series implements SeriesHandler {
-    tipo = 'SERIE' as BaixavelTipo
+    tipo = Baixaveis.SERIE 
     site = ''
     uuid = ''
     titulo = ''

@@ -23,10 +23,11 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
-    
     "rootDir": ".",
     "baseUrl": "src",
-    "outDir": "dist"
+    "outDir": "dist",
+    "target": "es5",
+    "incremental": true
   },
   "exclude": [
     "node_modules"

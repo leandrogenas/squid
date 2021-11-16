@@ -48,7 +48,7 @@ function limparInfosTexto(info: string)
 export function extrairInfosPost(serie: Serie)
     : InfosPostMP4Series
 {
-    const html = htmlToDOM(serie.html);
+    const html = htmlToDOM(serie.html as any);
 
     const infos = { } as InfosPostMP4Series;
 
@@ -139,7 +139,7 @@ export function extrairLinks(serie: Serie)
 {
     const links: Link[] = [];
 
-    const html = htmlToDOM(serie.html);
+    const html = htmlToDOM(serie.html as any);
     
     const select = CSSselect.selectAll('p>span>strong', html) as Element[];
     select.forEach(bloco => {
@@ -186,7 +186,7 @@ export function extrairLinks(serie: Serie)
 
 export function extrairTodosLinks(serie: Serie)
 {
-  const html = htmlToDOM(serie.html);
+  const html = htmlToDOM(serie.html as any);
                 
   const elmLinks: Element[] | null = CSSselect
     .selectAll(`[href^="http://url.baixarseriesmp4.com"]`, html);

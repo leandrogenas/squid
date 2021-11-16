@@ -54,7 +54,8 @@ export const squidSlice = createSlice({
 					const split = action.payload.split('/');
 					const uuid = split[split.length - 1];
 
-					paginaAtual = (state.sites.filter(site => site.uuid === uuid)[0]).nome;
+					const lance = (state.sites.filter(site => site.uuid === uuid)[0]);
+					paginaAtual = lance?.nome;
 				}
 			}
 

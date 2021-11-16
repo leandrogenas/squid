@@ -119,7 +119,7 @@ const Downloads = (props) =>
   { 
     return (
       <Cell>
-          {downloads[rowIdx].nome}
+          {downloads[rowIdx].nome ?? ''}
           {downloads[rowIdx]?.serie?.titulo}
       </Cell>
     )

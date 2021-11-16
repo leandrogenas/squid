@@ -5,7 +5,7 @@ const cwd = process.cwd();
 
 module.exports = {
   rendererSrcDir: '../renderizador',
-  mainSrcDir: './src',
+  mainSrcDir: './electron',
 
   webpack: (defaultConfig, env) => Object.assign(defaultConfig, {
     // ...defaultConfig
@@ -49,12 +49,12 @@ module.exports = {
     //   background: './src/background.ts',
     //   helpers: './src/helpers/index.ts'
     // },
-    output: {
-      path: path.resolve(cwd, 'dist'),
-      library: 'squid',
-      libraryTarget: "commonjs2",
-      filename: '[name].js',
-      auxiliaryComment: 'Pacote principal',
-    },
+    // output: {
+    //   path: path.resolve(cwd, 'dist'),
+    //   library: 'squid',
+    //   libraryTarget: "commonjs2",
+    //   filename: '[name].js',
+    //   auxiliaryComment: 'Pacote principal',
+    // },
   }),
 };
