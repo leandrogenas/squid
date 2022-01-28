@@ -9,6 +9,9 @@
     ],
     "rootDir": ".",
     "noEmit": true,
+    "noImplicitAny": false,
+    "noUnusedParameters": false,
+    "noUnusedLocals": false,
     "incremental": true,
     "esModuleInterop": true
   },

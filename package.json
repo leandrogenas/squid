@@ -9,14 +9,14 @@
     "url": "https://leand.dev"
   },
   "engines": {
-    "node": "^14.15",
+    "node": ">14 && <=16",
     "npm": ">=7",
     "yarn": ">=1.1"
   },
   "workspaces": [
     "modules/comum",
-    "modules/principal",
-    "modules/renderizador"
+    "modules/principal/**",
+    "modules/renderizador/**"
   ],
   "scripts": {
     "postinstall": "electron-builder install-app-deps",

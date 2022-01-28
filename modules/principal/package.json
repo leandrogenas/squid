@@ -2,7 +2,6 @@
     "name": "@squid/principal",
     "version": "0.0.1",
     "main": "app/background.js",
-    
     "license": "MIT",
     "private": true,
     "browser": {

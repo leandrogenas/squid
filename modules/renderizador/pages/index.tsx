@@ -31,7 +31,7 @@ const IndexPage: React.FC = () => {
   }
 
   const outroTesteClick = () => {
-    dispatch(listarSeriesThunk()).then(data => {
+    dispatch(listarSeriesThunk(1)).then(data => {
       console.log(data);
     })
     // console.log(squid);
